@@ -27,9 +27,9 @@ def main():
 
 
 	with open(opts.input, 'rb') as f:
-		reader = csv.reader(f)
-		for row in f:
-			if row[0:6] in school_ID_list:
+		# reader = csv.reader(f)
+		for row in f: #This treats the row as one long string, which works for this, If we start looking for specific fields we'll use the CSV reader
+			if row[0:6] in school_ID_list: #ID's always seem to be 6 characters
 				output_file.write(row.rstrip("\n"))
 
 	output_file.close()
