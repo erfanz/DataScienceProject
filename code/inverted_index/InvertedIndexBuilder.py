@@ -1,20 +1,19 @@
-from collections import defaultdict
-import operator
+from collections import defaultdict # for defaultdict
+import operator                     # for sorting dictionary
+import sys, getopt                  # for command line arguments
 
 
-DATA_DIRECTORY = "../../data"
-STOP_WORDS = "../../utils/stopwords.txt"
+########################
+#
+# Returns: inverted index, which is a dictionary.
+#           Each entry of this dictionary is in this form:  Key: term, Value: [(prof_id, term_frequency), (prof_id, term_frequency), ...]
+#           Where term_frequency is the number of occurences of the 'term', in all the papers, abstracts, and domains of prof_id 
+#        
+#######################
+def buildInvertedIndex(stopwordsFile, publicationsFile):
 
-def buildInvertedIndex():
-    ########################
-    #
-    # Returns: inverted index, which is a dictionary.
-    #           Each entry of this dictionary is in this form:  Key: term, Value: [(prof_id, term_frequency), (prof_id, term_frequency), ...]
-    #           Where term_frequency is the number of occurences of the 'term', in all the papers, abstracts, and domains of prof_id 
-    #        
-    #######################
-    corpus_file = open(DATA_DIRECTORY + '/corpus.csv', 'r')
-    stopWords = loadStopWords(STOP_WORDS)
+    corpus_file = open(publicationsFile, 'r')
+    stopWords = loadStopWords(stopwordsFile)
     invertedIndex = defaultdict(list)
     
     for line in corpus_file:
@@ -72,9 +71,26 @@ def loadStopWords(stopWordFilePath):
     
 
     
-
 if __name__ == '__main__':
-    invertedIndex = buildInvertedIndex()
+    if len(sys.argv) != 5:
+        print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+        sys.exit(2)        
+        
+    try:
+        opts, args = getopt.getopt(sys.argv[1:],"hs:p:")
+    except getopt.GetoptError:
+        print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+            sys.exit()
+        elif opt == "-s":
+            stopwordsFile = arg
+        elif opt == "-p":
+            publicationsFile = arg
+    
+    invertedIndex = buildInvertedIndex(stopwordsFile, publicationsFile)
     termfreq = dict()
     
     
@@ -99,7 +115,7 @@ if __name__ == '__main__':
     
     
     sorted_termfreq = sorted(termfreq.items(), key=operator.itemgetter(1))
-    #print sorted_termfreq
+    print sorted_termfreq
     
         
     
