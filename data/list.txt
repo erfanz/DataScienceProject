@@ -1,10 +1,10 @@
-Artificial intelligence.txt
-Software engineering.txt
-Computer networks.txt
-Theoretical computer science.txt
-High-Performance Computing.txt
-Information security.txt
-Interdisciplinary Studies.txt
-Compter graphics_Multimedia.txt
-Database_Data mining_Information retrieval.txt
-Human computer interaction_Ubiquitous computing.txt
+citations/Artificial intelligence.txt
+citations/Software engineering.txt
+citations/Computer networks.txt
+citations/Theoretical computer science.txt
+citations/High-Performance Computing.txt
+citations/Information security.txt
+citations/Interdisciplinary Studies.txt
+citations/Compter graphics_Multimedia.txt
+citations/Database_Data mining_Information retrieval.txt
+citations/Human computer interaction_Ubiquitous computing.txt

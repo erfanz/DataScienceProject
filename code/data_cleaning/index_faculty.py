@@ -43,12 +43,16 @@ def index_faculty(faculty_file,corpus_file):
 				if edit_dist(first_id[0],first_name) < 3:
 					faculty_index[first_id[1]] = line
 			else:
+				#not_identified = 1;
 				for l in corpus.keys():
 					if edit_dist(l,last_name) < 3:
 						first_id = corpus[l]
 						if edit_dist(first_id[0],first_name) < 3:
 							faculty_index[first_id[1]] = line
+							not_identified = 0;
 							break
+				#if not_identified == 1:
+					#faculty_index[line.split(',')[0]] = line;
 		for k, v in faculty_index.items():
 			fi.write(k + "," + v)
 
