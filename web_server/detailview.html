@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<style>
+
+.states {
+  fill: #000;
+  stroke: #fff;
+}
+
+.symbol {
+  fill: red;
+  fill-opacity: .6;
+  stroke: #fff;
+}
+
+svg {
+display:block; margin-left:auto; margin-right:auto;
+}
+
+</style>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
+	<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+	
+	<title>ProfFinder</title>
+	
+</head>
+<body>
+
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
+		<img src="images/logo.png" height=60/></div>
+		<div id="searchContainer" style="float:left; width:80%">
+		<form action="cgi-bin/showSearchResults.py" >
+			<input id="query" name="query" type="text" style="width:85%"/>
+			<input id="submit" name="submit" type="submit" value="Search" />
+		</form>
+	</div>
+	</div>
+	
+	<div style="margin: 10px">
+	<h3>Ugur Cetintemel (Professor)</h3>
+	<div style="margin-left: 10px">
+	Research Fields: Database Systems, Mobile and Ubiquitous Computing, Operating Systems and Distributed Systems, Big Data Tools and Systems, Real-time, Continuous Analytics<br>
+	</div>
+	</div>
+	
+	<div style="margin: 10px">
+	<h4>Institution</h4>
+	<div style="margin-left: 10px">
+	<a href="#">Brown University</a> - <a href="#">CS Department</a><br>
+	
+	Providence, Rhode Island 02912,<br>
+	USA
+	
+	</div>
+	</div>
+	
+	
+	<div style="margin: 10px">
+    <h4>Publications</h4>
+
+	<div style="margin: 10px">
+	Andrew Crotty, Alex Galakatos, Kayhan Dursun, Tim Kraska, Ugur Çetintemel, Stanley B. Zdonik:<br>
+	<div style="margin-left: 10px">
+Tupleware: "Big" Data, Big Analytics, Small Clusters. CIDR 2015
+	</div>
+	</div>
+
+	<div style="margin: 10px">
+John Meehan, Nesime Tatbul, Stanley B. Zdonik, Cansu Aslantas, Ugur Çetintemel, Jiang Du, Tim Kraska, Samuel Madden, David Maier, Andrew Pavlo, Michael Stonebraker, Kristin Tufte, Hao Wang:
+<div style="margin-left: 10px">
+S-Store: Streaming Meets Transaction Processing. CoRR abs/1503.01143 (2015)
+	</div>
+	</div>
+
+
+
+<div style="margin: 10px">
+Carsten Binnig, Ugur Çetintemel, Andrew Crotty, Alex Galakatos, Tim Kraska, Erfan Zamanian, Stanley B. Zdonik:
+<div style="margin-left: 10px">
+The End of Slow Networks: It's Time for a Redesign. CoRR abs/1504.01048 (2015)
+2014
+	</div>
+	</div>
+
+<div style="margin: 10px">
+Elkhan Dadashov, Ugur Çetintemel, Tim Kraska:
+<div style="margin-left: 10px">
+Putting Analytics on the Spot: Or How to Lower the Cost for Analytics. IEEE Internet Computing 18(5): 70-73 (2014)
+	</div>
+	</div>
+
+<div style="margin: 10px">
+Ugur Çetintemel, Jiang Du, Tim Kraska, Samuel Madden, David Maier, John Meehan, Andrew Pavlo, Michael Stonebraker, Erik Sutherland, Nesime Tatbul, Kristin Tufte, Hao Wang, Stanley B. Zdonik:
+<div style="margin-left: 10px">
+S-Store: A Streaming NewSQL System for Big Velocity Applications. PVLDB 7(13): 1633-1636 (2014)
+	</div>
+	</div>
+
+<div style="margin: 10px">
+Z. Meral Özsoyoglu, Ugur Çetintemel, Nilesh N. Dalvi, Hank Korth, Anthony K. H. Tung:
+<div style="margin-left: 10px">
+Special issue on best papers of VLDB 2012. VLDB J. 23(2): 173-174 (2014)
+	</div>
+	</div>
+
+<div style="margin: 10px">
+Jennie Duggan, Olga Papaemmanouil, Ugur Çetintemel, Eli Upfal:
+<div style="margin-left: 10px">
+Contender: A Resource Modeling Approach for Concurrent Query Performance Prediction. EDBT 2014: 109-120
+	</div>
+		</div>
+	</div>
+
+		
+	<!--div class="page-header center">
+		<p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
+	</div-->
+	
+</div>
+<div class="col-md-2" id="sidebar"></div>
+<!--script>
+
+var width = 200,
+    height = 104;
+
+var radius = d3.scale.sqrt()
+    .domain([0, 1e6])
+    .range([0, 10]);
+
+	
+var path = d3.geo.path();
+
+var svg = d3.select("#sidebar").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "us.json")
+    .defer(d3.json, "us-state-centroids.json")
+    .await(ready);
+
+function ready(error, us, centroid) {
+  svg.append("path")
+      .attr("class", "states")
+      .datum(topojson.feature(us, us.objects.states))
+      .attr("d", path);
+
+  svg.selectAll(".symbol")
+      .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
+    .enter().append("path")
+      .attr("class", "symbol")
+      .attr("d", path.pointRadius(function(d) { return 1; }));
+}
+
+</script-->
+
+</body>
+</html>
