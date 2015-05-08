@@ -33,36 +33,45 @@ display:block; margin-left:auto; margin-right:auto;
 
 <div class="row">
 <div class="col-md-2"></div>
-<div class="col-md-8">
-	<div class="page-header center">
-		<img src="images/logo.png" style="display:block; margin-left:auto; margin-right:auto" height=150/>
-	</div>
-
-	<div id="searchContainer" >
-		<form action="cgi-bin/showSearchResults.py" style="display:block; margin-left:auto; margin-right:auto; width:50%">
+<div class="col-md-6">
+	<div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
+		<img src="images/logo.png" height=60/></div>
+		<div id="searchContainer" style="float:left; width:80%">
+		<form action="cgi-bin/showSearchResults.py" >
 			<input id="query" name="query" type="text" style="width:85%"/>
 			<input id="submit" name="submit" type="submit" value="Search" />
 		</form>
 	</div>
+	</div>
+	
+	<div>
+	<a href="#">Professor Name (Rank)</a><br>
+	Institute <a href="#">Department webpage</a> <a href="#">University webpage</a><br>
+	Subfields: Quantum-Philatelie<br>
+	Recent Publication: The Theory of Everything (2069), 69th Symposium on Pseudoscience. (42 Publications found)
+	</div>
+
+	
 		
 	<div class="page-header center">
 		
 	</div>
 	
 </div>
-</div>
-<script>
+<div class="col-md-2" id="sidebar"></div>
+<!--script>
 
-var width = 960,
-    height = 500;
+var width = 200,
+    height = 104;
 
 var radius = d3.scale.sqrt()
     .domain([0, 1e6])
     .range([0, 10]);
 
+	
 var path = d3.geo.path();
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#sidebar").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -81,10 +90,10 @@ function ready(error, us, centroid) {
       .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
     .enter().append("path")
       .attr("class", "symbol")
-      .attr("d", path.pointRadius(function(d) { return radius(d.properties.population); }));
+      .attr("d", path.pointRadius(function(d) { return 1; }));
 }
 
-</script>
+</script-->
 
 </body>
 </html>
