@@ -68,7 +68,7 @@ var svg = d3.select("body").append("svg")
 
 queue()
     .defer(d3.json, "us.json")
-    .defer(d3.json, "us-state-centroids.json")
+    .defer(d3.json, 'Inst_info.json')
     .await(ready);
 
 function ready(error, us, centroid) {
@@ -78,10 +78,10 @@ function ready(error, us, centroid) {
       .attr("d", path);
 
   svg.selectAll(".symbol")
-      .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
+      .data(centroid.features)
     .enter().append("path")
       .attr("class", "symbol")
-      .attr("d", path.pointRadius(function(d) { return radius(d.properties.population); }));
+      .attr("d", path.pointRadius(function(d) { return 10 }));
 }
 
 </script>
