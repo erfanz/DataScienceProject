@@ -1,7 +1,6 @@
 import csv
 
 dept = {}
-uni = {}
 name = {}
 
 mFile = open(('merged.csv'), 'w')
@@ -17,12 +16,10 @@ filereader = csv.reader(open(('batch_results.csv'),'r'))
 for line in filereader:
 	unitid = line[28]
 	if unitid not in dept:
-		name[unitid] = line[29]
-		dept[unitid] = line[30]
-		uni [unitid] = line[31]
+		name[unitid] = line[28]
+		dept[unitid] = line[29]
 	else:
-		merge_url(dept[unitid], line[30])
-		merge_url(uni[unitid], line[31])
+		merge_url(dept[unitid], line[29])
 
 
 	
