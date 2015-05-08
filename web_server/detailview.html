@@ -6,12 +6,12 @@
 .states {
   fill: #000;
   stroke: #fff;
+  stroke-width: 0.4;
 }
 
 .symbol {
   fill: red;
   fill-opacity: .6;
-  stroke: #fff;
 }
 
 svg {
@@ -43,7 +43,11 @@ display:block; margin-left:auto; margin-right:auto;
 		</form>
 	</div>
 	</div>
-	
+</div>
+</div>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-6">
 	<div style="margin: 10px">
 	<h3>Ugur Cetintemel (Professor)</h3>
 	<div style="margin-left: 10px">
@@ -51,16 +55,8 @@ display:block; margin-left:auto; margin-right:auto;
 	</div>
 	</div>
 	
-	<div style="margin: 10px">
-	<h4>Institution</h4>
-	<div style="margin-left: 10px">
-	<a href="#">Brown University</a> - <a href="#">CS Department</a><br>
+
 	
-	Providence, Rhode Island 02912,<br>
-	USA
-	
-	</div>
-	</div>
 	
 	
 	<div style="margin: 10px">
@@ -118,6 +114,8 @@ Contender: A Resource Modeling Approach for Concurrent Query Performance Predict
 	</div>
 		</div>
 	</div>
+	
+
 
 		
 	<!--div class="page-header center">
@@ -125,8 +123,21 @@ Contender: A Resource Modeling Approach for Concurrent Query Performance Predict
 	</div-->
 	
 </div>
-<div class="col-md-2" id="sidebar"></div>
-<!--script>
+<div class="col-md-2" id="sidebar">
+
+		<div style="margin: 10px">	
+	<h4>Institution</h4>
+	<div style="margin-left: 10px">
+	<a href="#">Brown University</a><br/>
+	<a href="#">CS Department</a><br>
+	Providence, Rhode Island 02912,<br>
+	USA
+	
+	</div>
+	</div>
+
+</div>
+<script>
 
 var width = 200,
     height = 104;
@@ -134,17 +145,28 @@ var width = 200,
 var radius = d3.scale.sqrt()
     .domain([0, 1e6])
     .range([0, 10]);
-
 	
-var path = d3.geo.path();
+var margin = {top: 5, left: 5, bottom: 5, right: 5}
+  , width = parseInt(d3.select('#sidebar').style('width'))
+  , width = width - margin.left - margin.right
+  , mapRatio = .5
+  , height = width * mapRatio;
 
-var svg = d3.select("#sidebar").append("svg")
+var projection = d3.geo.albersUsa()
+    .scale(width)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);	
+//var path = d3.geo.path();
+
+var svg = d3.select("#sidebar").insert("svg", ":first-child")
     .attr("width", width)
     .attr("height", height);
 
 queue()
     .defer(d3.json, "us.json")
-    .defer(d3.json, "us-state-centroids.json")
+    .defer(d3.json, 'Inst_info.json')
     .await(ready);
 
 function ready(error, us, centroid) {
@@ -154,13 +176,36 @@ function ready(error, us, centroid) {
       .attr("d", path);
 
   svg.selectAll(".symbol")
-      .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
+      .data(centroid.features)
     .enter().append("path")
       .attr("class", "symbol")
-      .attr("d", path.pointRadius(function(d) { return 1; }));
+      .attr("d", path.pointRadius(function(d) { return 5; }));
 }
 
-</script-->
+
+d3.select(window).on('resize', resize);
+
+function resize() {
+    // adjust things when the window size changes
+    width = parseInt(d3.select('#svg').style('width'));
+    width = width - margin.left - margin.right;
+    height = width * mapRatio;
+
+    // update projection
+    projection
+        .translate([width / 2, height / 2])
+        .scale(width);
+
+    // resize the map container
+    svg
+        .style('width', width + 'px')
+        .style('height', height + 'px');
+
+    // resize the map
+    svg.select('.land').attr('d', path);
+    svg.selectAll('.state').attr('d', path);
+}
+</script>
 
 </body>
 </html>
