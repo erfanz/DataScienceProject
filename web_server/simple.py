@@ -409,15 +409,15 @@ class StringGenerator(object):
         	</div>
 	
 	
-            <h4>Publications</h4>
-        <div style="margin: 15px" jrepeat="publications">
-        	<div style="margin: 10px" jput="publications">
-        	<div style="margin-left: 10px">
-        <em>{{title}}</em><br/>
-        {{venue}}
-            <br/>
-        	</div>
-        	</div>
+		<h4>Publications</h4>
+		<div style="margin: 10px" jrepeat="publications">
+			<div style="margin: 10px" jput="publications">
+			{{authors}}:<br>
+			<div style="margin-left: 10px">
+				<em>{{title}}</em><br/>
+				{{venue}} ({{year}})
+			</div>
+		</div>
 
 		
         	<!--div class="page-header center">
