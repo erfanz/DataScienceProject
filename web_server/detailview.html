@@ -11,7 +11,7 @@
 
 .symbol {
   fill: red;
-  fill-opacity: .6;
+  fill-opacity: 0.8;
 }
 
 svg {
@@ -59,7 +59,7 @@ display:block; margin-left:auto; margin-right:auto;
 	<h3>{{name}} ({{rank}})</h3>
 	<div style="margin-left: 10px">
 	Faculty at {{university}} since {{joinyear}}<br/>
-	Research Fields: {{subfield}}<br>
+	Research Fields: {{subfields}}<br>
 	</div>
 	</div>
 	
@@ -82,15 +82,19 @@ display:block; margin-left:auto; margin-right:auto;
 	</div>
 </div>
 <div class="col-md-2" id="sidebar">
-
-		<div style="margin: 10px">	
+	<div style="margin: 10px" jput="side">	
 	<h4>Institution</h4>
 	<div style="margin-left: 10px">
-	<a href="#">Brown University</a><br/>
-	<a href="#">CS Department</a><br>
-	Providence, Rhode Island 02912,<br>
-	USA
+	<a href="http://{{website}}">{{name}}</a><br/>
+	<a href="{{dept_site}}">CS Department</a><br>
+	{{addr}}<br>
+	{{city}}, {{state}} {{zip_code}}<br>
+	USA<br><br>
+	Size of CS faculty: {{total_cs_fac}}<br>
+	<a href="http://{{price_calc}}">Admission information</a><br><br>
 	
+	<a href="{{citylink}}">City Information ({{city}})</a>
+
 	</div>
 	</div>
 
@@ -98,8 +102,6 @@ display:block; margin-left:auto; margin-right:auto;
 
 <script>
 var unitid = "0";
-
-$(document).ready(function(){
 var json=[{"name":"Ugur Cetintemel","rank":"Professor","joinyear":"2007","subfields":["Database Systems", "Mobile and Ubiquitous Computing","Operating Systems and Distributed Systems","Big Data Tools and Systems", "Real-time, Continuous Analytics"],"unitid":"217156","university":"Brown University","city":"Providence","state":"RI","publications":[{"authors":"Andrew Crotty, Alex Galakatos, Kayhan Dursun, Tim Kraska, Ugur Çetintemel, Stanley B. Zdonik",
 "title":"Tupleware: \"Big\" Data, Big Analytics, Small Clusters.","venue":"CIDR 2015","year":"2015"},
 {"authors":"John Meehan, Nesime Tatbul, Stanley B. Zdonik, Cansu Aslantas, Ugur Çetintemel, Jiang Du, Tim Kraska, Samuel Madden, David Maier, Andrew Pavlo, Michael Stonebraker, Kristin Tufte, Hao Wang",
@@ -115,12 +117,78 @@ var json=[{"name":"Ugur Cetintemel","rank":"Professor","joinyear":"2007","subfie
 "authors":"Jennie Duggan, Olga Papaemmanouil, Ugur Çetintemel, Eli Upfal",
 "title":"Contender: A Resource Modeling Approach for Concurrent Query Performance Prediction.","venue":"EDBT 2014: 109-120","year":"2014"}]}];
 
+statedict = {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AS": "American-Samoa",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District-Of-Columbia",
+    "FM": "Federated-States-Of-Micronesia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "GU": "Guam",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MH": "Marshall Islands",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New-Hampshire",
+    "NJ": "New-Jersey",
+    "NM": "New-Mexico",
+    "NY": "New-York",
+    "NC": "North-Carolina",
+    "ND": "North-Dakota",
+    "MP": "Northern-Mariana-Islands",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PW": "Palau",
+    "PA": "Pennsylvania",
+    "PR": "Puerto-Rico",
+    "RI": "Rhode-Island",
+    "SC": "South-Carolina",
+    "SD": "South-Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VI": "Virgin Islands",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming"
+}
+
+$(document).ready(function(){
+
+
    $('#main').jPut({
        jsonData:json,   //your json data
        name:'template'  //jPut template name
    });
    
-   unitid = json.unitid;
+   unitid = json[0]["unitid"];
+   
    queue()
     .defer(d3.json, "us.json")
     .defer(d3.json, 'Inst_info.json')
@@ -153,23 +221,40 @@ var svg = d3.select("#sidebar").insert("svg", ":first-child")
     .attr("width", width)
     .attr("height", height);
 
-queue()
+/*queue()
     .defer(d3.json, "us.json")
     .defer(d3.json, 'Inst_info.json')
-    .await(ready);
+    .await(ready);*/
 
 function ready(error, us, centroid) {
+var sidedata = {};
+for(var i = 0; i < centroid.features.length; i++) {
+    var obj = centroid.features[i];
+	if (obj.id == unitid) {
+		sidedata = obj.properties;
+		sidedata["citylink"] = "http://www.city-data.com/city/"+sidedata.city+"-"+statedict[sidedata.state]+".html";
+		
+		$('#sidebar').jPut({
+       jsonData: [sidedata],   //your json data
+       name:'side'  //jPut template name
+   });
+	}
+}
+
+   
+
   svg.append("path")
       .attr("class", "states")
       .datum(topojson.feature(us, us.objects.states))
       .attr("d", path);
-
+ 
   svg.selectAll(".symbol")
       .data(centroid.features)
     .enter().append("path")
       .attr("class", "symbol")
       .attr("d", path.pointRadius(function(d) { 
-	  if(d.id == unitid){return 5;}
+	  if(d.id == unitid){
+	  return 5;}
 	  else{return 0;}}));
 }
 
@@ -193,8 +278,8 @@ function resize() {
         .style('height', height + 'px');
 
     // resize the map
-    svg.select('.land').attr('d', path);
-    svg.selectAll('.state').attr('d', path);
+    svg.selectAll('.symbols').attr('d', path);
+    svg.selectAll('.states').attr('d', path);
 }
 </script>
 
