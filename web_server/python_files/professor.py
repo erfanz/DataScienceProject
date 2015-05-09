@@ -40,36 +40,36 @@ class Professor:
         #print json.dumps(vars(james),sort_keys=False, indent=4)
         return json
     
-    @staticmethod
-    def findPublications(professorID, publicationFile):
-        pubFile = open(publicationFile, 'r')
-        pubList = []
-        for line in pubFile:
-            splits = line.split(",")
-            profID = int(splits[0])
-            if profID == professorID:
-                for paper in splits[2:]:
-                    # each paper is in form title:venue:domain:abstract
-                
-                    paperSplits = paper.split(":")
-                    title = ""
-                    venue = ""
-                    authors = ""
-                    year = ""
-                    
-                    if len(paperSplits) > 0:
-                        title = paperSplits[0]
-                    if len(paperSplits) > 1:
-                        venue = paperSplits[1]
-                    if len(paperSplits) > 2:
-                        authors = paperSplits[2]
-                    if len(paperSplits) > 3:
-                        year = paperSplits[3]
-                    
-                    d = {"title" : title, "venue" : venue, "authors": auhthors, "year": year}
-                    pubList.append(d)
-        
-        return pubList
+    # @staticmethod
+    # def findPublications(professorID, publicationFile):
+    #     pubFile = open(publicationFile, 'r')
+    #     pubList = []
+    #     for line in pubFile:
+    #         splits = line.split(",")
+    #         profID = int(splits[0])
+    #         if profID == professorID:
+    #             for paper in splits[2:]:
+    #                 # each paper is in form title:venue:domain:abstract
+    #
+    #                 paperSplits = paper.split(":")
+    #                 title = ""
+    #                 venue = ""
+    #                 authors = ""
+    #                 year = ""
+    #
+    #                 if len(paperSplits) > 0:
+    #                     title = paperSplits[0]
+    #                 if len(paperSplits) > 1:
+    #                     venue = paperSplits[1]
+    #                 if len(paperSplits) > 2:
+    #                     authors = paperSplits[2]
+    #                 if len(paperSplits) > 3:
+    #                     year = paperSplits[3]
+    #
+    #                 d = {"title" : title, "venue" : venue, "authors": auhthors, "year": year}
+    #                 pubList.append(d)
+    #
+    #     return pubList
                 
 
     
@@ -103,7 +103,7 @@ class Professor:
         
     
     @staticmethod
-    def findSingleProfByProfID(professorID, prof_file):
+    def findSingleProfByProfID(professorID, prof_file, invertedIndex):
         profFile = open(prof_file, 'r')
         
         for line in profFile:
@@ -125,5 +125,6 @@ class Professor:
                 p.PhD      = splits[9].strip()
                 p.postdoc  = splits[10].strip()
                 p.profile  = splits[11].strip()
-                p.publications = Professor.findPublications(ID, '../data/corpus_2.txt')
+                #p.publications = Professor.findPublications(ID, '../data/corpus_2.txt')
+                p.publications = invertedIndex.publications[professorID]
                 return p

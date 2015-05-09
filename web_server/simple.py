@@ -35,10 +35,6 @@ from python_files.professor import Professor
 #from classes.invertedIndexBuilder import InvertedIndexBuilder 
 
 
-PORT = 8000
-
-
-
 index = InvertedIndexBuilder()
 
 
@@ -211,8 +207,9 @@ class StringGenerator(object):
         # then, removes the stop words
         important_tokens = [x for x in tokens if x not in index.stopWords]
         profIDs = index.mergeJoin(important_tokens)
+        print 'profIDs', profIDs
         sortedProfIDs = index.sortByTF_IDF(profIDs, important_tokens)
-        # print "sorted prof ID", sortedProfIDs
+        #print "sorted prof ID", sortedProfIDs
         #profIDs = [158972, 18382, 158944]
         
         ultimateList = []
@@ -667,4 +664,5 @@ class StringGenerator(object):
 if __name__ == '__main__':
     print 'Building and loading the inverted index ... (may take a few minutes)'
     index.build(stopwordsFile, corpusFile)
+    print index.invertedIndex
     cherrypy.quickstart(StringGenerator(), '/', 'simple.config')
