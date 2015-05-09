@@ -55,6 +55,10 @@ display:block; margin-left:auto; margin-right:auto;
 var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Systems", "Mobile and Ubiquitous Computing"],"university":"Brown University","rpub":"Tupleware: Big Data, Big Analytics, Small Clusters (2015), Conference on Innovative Data Systems Research","numpub":256,"unitid":"217156"},
 {"name":"Avi Silberschatz","rank":"Professor","subfields":["Database Systems", "Operating Systems", "Network Management"],"university":"Yale University","rpub":"Learning and verifying quantified boolean queries by example (2013), Proceedings of the 32nd symposium on Principles of database systems","numpub":666,"unitid":"130794"},
 {"name":"Tim Kraska","rank":"Assistant Professor","subfields":["Database Systems", "Cloud Computing"],"university":"Brown University","rpub":"Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048","numpub":42,"unitid":"217156"}];
+
+var numpages = 1;
+var page = 1;
+
 $(document).ready(function(){
 	queue()
     .defer(d3.json, '/json/Inst_info.json')
@@ -78,6 +82,25 @@ $('#main').jPut({
        jsonData:json,   //your json data
        name:'template'  //jPut template name
    });
+
+   if (page > 1){
+   $('<a href="'+(page-1)+'">&lt; </a>').appendTo($('#pages'));
+   }else{
+   $('<span>&lt; </span>').appendTo($('#pages'));}
+   
+   
+for(var n = 1; n < numpages+1; n++) {
+if (n == page) {
+ $('<span>'+n+' </span>').appendTo($('#pages'));
+ } else{
+ $('<a href="'+n+'">'+n+' </a>').appendTo($('#pages'));
+ }
+}
+if(page<numpages){
+$('<a href="'+(page+1)+'">&gt;</a>').appendTo($('#pages'));
+}else{
+   $('<span>&gt;</span>').appendTo($('#pages'));}
+   
 }
 </script>
 	
@@ -99,7 +122,8 @@ $('#main').jPut({
 	
 		
 	<div class="page-header center">
-		<p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
+		<p align='center'>Page <span id="pages"></span></p>
+		<!--p align='center'>Page <span id="pages">&lt; <a href="#">1</a> &gt;</span></p-->
 	</div>
 	
 </div>

@@ -210,8 +210,8 @@ $(document).ready(function(){
    unitid = json[0]["unitid"];
    
    queue()
-    .defer(d3.json, "/us.json")
-    .defer(d3.json, '/Inst_info.json')
+    .defer(d3.json, "/json/us.json")
+    .defer(d3.json, '/json/Inst_info.json')
     .await(ready);
 });
 
