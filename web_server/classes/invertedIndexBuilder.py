@@ -63,7 +63,11 @@ class InvertedIndexBuilder:
             for term in termFrequency.keys():
                 t = (profID, termFrequency[term]) 
                 self.invertedIndex[term].append(t)
-
+        
+        # all entries must be sorted by profID, so that later on, we can do merge join.
+        for term in self.invertedIndex.keys():
+            self.invertedIndex[term].sort(key=lambda tup: tup[0])
+            
 
     def loadStopWords(self, stopWordFilePath):
         with open(stopWordFilePath) as stopword_file:
