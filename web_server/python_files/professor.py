@@ -99,7 +99,7 @@ class Professor:
                 p.PhD      = splits[9].strip()
                 p.postdoc  = splits[10].strip()
                 p.profile  = splits[11].strip()
-                p.mostRecentPub   = invertedIndex.publications[ID][0]
+                p.mostRecentPub   = invertedIndex.publications[ID][0]['title']
                 p.numPub          = len(invertedIndex.publications[ID])
 
                 profList.append(p)

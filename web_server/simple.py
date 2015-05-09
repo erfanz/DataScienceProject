@@ -271,7 +271,7 @@ class StringGenerator(object):
         <div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
         <img src="images/logo.png" height=60/></div>
         <div id="searchContainer" style="float:left; width:80%">
-        <form action="cgi-bin/showSearchResults.py" >
+        <form action="showResults" >
         <input id="query" name="query" type="text" style="width:85%"/>
         <input id="submit" name="submit" type="submit" value="Search" />
         </form>
@@ -315,8 +315,8 @@ class StringGenerator(object):
         <a href="/profile?query=""" + query + """&pid={{id}}&uniid={{unitid}}">{{name}} ({{rank}} Professor)</a><br>
         <div style="margin-left: 10px">
         {{university}} ({{city}}, {{state}})<br>
-        Research Field:{{subfields}}<br>
-		<Recent Publication: {{rpub}} ({{numpub}} publications found)><br>
+        Research Field: {{subfields}}<br>
+		Recent Publication: {{rpub}} ({{numpub}} publications found)<br>
         </div>
         </div>
         </div>
@@ -386,7 +386,7 @@ class StringGenerator(object):
         <div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
         <img src="images/logo.png" height=60/></div>
         <div id="searchContainer" style="float:left; width:80%">
-        <form action="cgi-bin/showSearchResults.py" >
+        <form action="showResults" >
         <input id="query" name="query" type="text" style="width:85%"/>
         <input id="submit" name="submit" type="submit" value="Search" />
         </form>
