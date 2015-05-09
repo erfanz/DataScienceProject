@@ -1,6 +1,7 @@
 from collections import defaultdict # for defaultdict
 import operator                     # for sorting dictionary
 import sys, getopt                  # for command line arguments
+import math
 
 
 ########################
@@ -16,23 +17,26 @@ import sys, getopt                  # for command line arguments
 class InvertedIndexBuilder:
     invertedIndex = defaultdict(list)
     stopWords = list()
+    profCnt = 0
     
-    def build(self, stopwordsFile, publicationsFile):
+    def build(self, stopwordsFile, corpusFile):
 
-        corpus_file = open(publicationsFile, 'r')
+        corpus_file = open(corpusFile, 'r')
         self.loadStopWords(stopwordsFile)
     
         for line in corpus_file:
+            self.profCnt += 1
             # initializing the term frequency list 
             termFrequency = defaultdict(lambda: 0)
         
             # each line will be in form ( prof_id,prof_name,title:venue:domain:abstract,title:venue:domain:abstract, ....)
             splits = line.lower().split(",")
-            profID = splits[0]
+            profID = int(splits[0])
             profName = splits[1]
         
             for paper in splits[2:]:
                 # each paper is in form title:venue:domain:abstract
+                
                 paperSplits = paper.split(":")
             
                 # title = paperSplits[0]
@@ -104,29 +108,47 @@ class InvertedIndexBuilder:
                 else:
                     j += 1
             return output            
+        
+    def sortByTF_IDF(self, profIDs, query):
+        profWeight = defaultdict(lambda: 0.0) 
+        for term in query:
+            for prof in self.invertedIndex[term]:
+                if prof[0] in profIDs:
+                    tf = prof[1]
+                    df = len(self.invertedIndex[term])
+                    profWeight[prof[0]] += (1 + math.log(tf) * (self.profCnt / len(self.invertedIndex[term])))
+        
+        profWeightUpdated = defaultdict(lambda: 0.0) 
+        for prof in profWeight.keys():
+            if profWeight[prof] > 2:
+                profWeightUpdated[prof] = profWeight[prof]
+        
+        profWeightUpdated = sorted(profWeightUpdated.iteritems(),key=operator.itemgetter(1),reverse=True)
+        return profWeightUpdated
+            
             
     
 if __name__ == '__main__':
     if len(sys.argv) != 5:
-        print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+        print  sys.argv[0], '-s <stopwords file> -c <corpus file>'
         sys.exit(2)        
         
     try:
-        opts, args = getopt.getopt(sys.argv[1:],"hs:p:")
+        opts, args = getopt.getopt(sys.argv[1:],"hs:c:")
     except getopt.GetoptError:
-        print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+        print  sys.argv[0], '-s <stopwords file> -c <corpus file>'
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print  sys.argv[0], '-s <stopwords file> -p <publications file>'
+            print  sys.argv[0], '-s <stopwords file> -c <corpus file>'
             sys.exit()
         elif opt == "-s":
             stopwordsFile = arg
-        elif opt == "-p":
-            publicationsFile = arg
+        elif opt == "-c":
+            corpusFile = arg
     
     index = InvertedIndexBuilder()
-    index.build(stopwordsFile, publicationsFile)
+    index.build(stopwordsFile, corpusFile)
     termfreq = dict()
     
     

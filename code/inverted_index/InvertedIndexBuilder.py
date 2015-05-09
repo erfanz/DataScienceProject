@@ -16,7 +16,7 @@ import sys, getopt                  # for command line arguments
 class InvertedIndexBuilder:
     invertedIndex = defaultdict(list)
     
-    def buildInvertedIndex(self, stopwordsFile, publicationsFile):
+    def build(self, stopwordsFile, publicationsFile):
 
         corpus_file = open(publicationsFile, 'r')
         stopWords = self.loadStopWords(stopwordsFile)
@@ -94,7 +94,7 @@ if __name__ == '__main__':
             publicationsFile = arg
     
     index = InvertedIndexBuilder()
-    index.buildInvertedIndex(stopwordsFile, publicationsFile)
+    index.build(stopwordsFile, publicationsFile)
     termfreq = dict()
     
     
