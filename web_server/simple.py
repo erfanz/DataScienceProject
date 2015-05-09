@@ -217,7 +217,7 @@ class StringGenerator(object):
             ultimateList.append(prof[0])
         print 'ultimateList' ,  ultimateList
         
-        profList = Professor.findProfByProfID(ultimateList, profFile)
+        profList = Professor.findProfByProfID(ultimateList, profFile, index)
         print 'profList', profList
         jsonList = []
         for prof in profList:
@@ -337,7 +337,7 @@ class StringGenerator(object):
         """
     @cherrypy.expose
     def profile(self, query, pid, uniid):
-        professor = Professor.findSingleProfByProfID(int(pid), profFile)
+        professor = Professor.findSingleProfByProfID(int(pid), profFile, index)
         jsonEntity = [professor.toJSON()]
         print jsonEntity
         print json.dumps(jsonEntity)

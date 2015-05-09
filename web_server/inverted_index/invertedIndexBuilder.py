@@ -26,7 +26,9 @@ class InvertedIndexBuilder:
         corpus_file = open(corpusFile, 'r')
         self.loadStopWords(stopwordsFile)
     
+    
         for line in corpus_file:
+            
             self.profCnt += 1
             # initializing the term frequency list 
             termFrequency = defaultdict(lambda: 0)
@@ -35,7 +37,8 @@ class InvertedIndexBuilder:
             splits = line.lower().split(",")
             profID = int(splits[0])
             profName = splits[1]
-        
+            
+            pubs = []
             for paper in splits[2:]:
                 # each paper is in form title:venue:domain:abstract
                 
@@ -44,7 +47,7 @@ class InvertedIndexBuilder:
                 title = ""
                 venue = ""
                 authors = ""
-                year = ""
+                year = 0
             
                 if len(paperSplits) > 0:
                     title = paperSplits[0]
@@ -54,10 +57,15 @@ class InvertedIndexBuilder:
                     authors = paperSplits[2]
                 if len(paperSplits) > 3:
                     year = paperSplits[3]
+                    
+                print 'title', title
+                print 'venue', venue
+                print 'authors', authors
+                print 'year', year
                 
                 #domain = paperSplits[2]
                 #abstract = paperSplits[3]
-                self.publications[profID].append({'title': title, 'venue': venue, 'authors': authors, 'year': year})
+                pubs.append({'title': title, 'venue': venue, 'authors': authors, 'year': year})
             
                 for paperSplit in paperSplits:
                     terms = paperSplit.split()
@@ -78,6 +86,10 @@ class InvertedIndexBuilder:
                         # each bigram is in form (first_term, second_term)
                         key = bigram[0] + " " + bigram[1]
                         termFrequency[key] += 1
+            
+            # sort the publications by year (from most recent to oldest)
+            pubs = sorted(pubs,key=operator.itemgetter('year'),reverse=True)
+            self.publications[profID] = pubs
         
             # adding all the terms (unigrams + bigrams) to the inverted index
             for term in termFrequency.keys():

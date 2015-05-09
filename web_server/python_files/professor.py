@@ -2,19 +2,21 @@ import json
 
 
 class Professor:
-    ID          = 0
-    name        = ""
-    uniID       = 0
-    uniName     = ""
-    joinYear    = ""
-    rank        = ""
-    fields      = ""
-    bachelor    = ""
-    master      = ""
-    PhD         = ""
-    postdoc     = ""
-    profile     = ""
-    publications = []
+    ID              = 0
+    name            = ""
+    uniID           = 0
+    uniName         = ""
+    joinYear        = ""
+    rank            = ""
+    fields          = ""
+    bachelor        = ""
+    master          = ""
+    PhD             = ""
+    postdoc         = ""
+    profile         = ""
+    publications    = []
+    mostRecentPub   = ""
+    numPub          = 0
     
     
     def toJSON(self):
@@ -25,15 +27,15 @@ class Professor:
         "university": self.uniName,
         "joinyear"  : self.joinYear,
         "publications" : self.publications,
-        "bcs"          : self.bachelor,
-        "mcs"          : self.master,
-        "phd"          : self.PhD,
-        "pdoc"          : self.postdoc,
+        "bcs"       : self.bachelor,
+        "mcs"       : self.master,
+        "phd"       : self.PhD,
+        "pdoc"      : self.postdoc,
         "unitid"    : self.uniID,
         "city"      : "__",
         "state"     : "__",
-        "rpub"      : "__",
-        "numpub"    : 14
+        "rpub"      : self.mostRecentPub,
+        "numpub"    : self.numPub
         }
         
         #print "json begins:"
@@ -74,7 +76,7 @@ class Professor:
 
     
     @staticmethod
-    def findProfByProfID(professorIDs, prof_file):
+    def findProfByProfID(professorIDs, prof_file, invertedIndex):
         profFile = open(prof_file, 'r')
         profList = []
         
@@ -97,7 +99,9 @@ class Professor:
                 p.PhD      = splits[9].strip()
                 p.postdoc  = splits[10].strip()
                 p.profile  = splits[11].strip()
-                
+                p.mostRecentPub   = invertedIndex.publications[ID][0]
+                p.numPub          = len(invertedIndex.publications[ID])
+
                 profList.append(p)
         return profList
         
