@@ -41,7 +41,7 @@ class InvertedIndexBuilder:
             pubs = []
             for paper in splits[2:]:
                 # each paper is in form title:venue:domain:abstract
-                
+                print 'Paper: ', paper
                 paperSplits = paper.split(":")
                 
                 title = ""
