@@ -25,6 +25,12 @@ display:block; margin-left:auto; margin-right:auto;
 		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+		<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="http://eyeseast.github.io/visible-data/components/bootstrap/js/tooltip.js" type="text/javascript"></script>
+	<script src="http://eyeseast.github.io/visible-data/components/underscore/underscore-min.js" type="text/javascript"></script>
+	<script src="http://eyeseast.github.io/visible-data/components/highlightjs/highlight.pack.js" type="text/javascript"></script>
+	<!--script src="javascript/jput-2.js" type="text/javascript"></script-->
+	<script src="javascript/jput.min.js" type="text/javascript"></script>
 	
 	<title>ProfFinder</title>
 	
@@ -43,35 +49,35 @@ display:block; margin-left:auto; margin-right:auto;
 		</form>
 	</div>
 	</div>
-	
-	<div style="margin: 10px">
-	<a href="#">Ugur Cetintemel (Professor)</a><br>
-	<div style="margin-left: 10px">
-	
-	Brown University (Providence, RI)<br>
-	Subfields: Database Systems, Mobile and Ubiquitous Computing, (+3 more)<br>
-	Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048 (42 Publications found)
-	</div>
-	</div>
-	
-	<div style="margin: 10px">
-	<a href="#">Avi Silberschatz (Professor)</a><br>
-	<div style="margin-left: 10px">
-	Yale University (New Haven, CT)<br>
-	Subfields: Database Systems, Operating Systems, Network Management, (+1 more)<br>
-	Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048 (42 Publications found)
-	</div>
-	</div>
-	
-	<div style="margin: 10px">
-	<a href="#">Tim Kraska (Assistant Professor)</a><br>
-	<div style="margin-left: 10px">
-	Brown University (Providence, RI)<br>
-	Subfields: Database Systems, Cloud Computing<br>
-	Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048 (42 Publications found)
-	</div>
-	</div>
 
+	<script>
+$(document).ready(function(){
+var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Systems", "Mobile and Ubiquitous Computing"],"university":"Brown University","city":"Providence","state":"RI","rpub":"Tupleware: Big Data, Big Analytics, Small Clusters (2015), Conference on Innovative Data Systems Research","numpub":256},
+{"name":"Avi Silberschatz","rank":"Professor","subfields":["Database Systems", "Operating Systems", "Network Management"],"university":"Yale University","city":"New Haven","state":"CT","rpub":"Learning and verifying quantified boolean queries by example (2013), Proceedings of the 32nd symposium on Principles of database systems","numpub":666},
+{"name":"Tim Kraska","rank":"Assistant Professor","subfields":["Database Systems", "Cloud Computing"],"university":"Brown University","city":"Providence","state":"RI","rpub":"Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048","numpub":42}];
+
+   $('#main').jPut({
+       jsonData:json,   //your json data
+       name:'template'  //jPut template name
+   });
+});
+</script>
+	
+	
+<div id="main">
+
+<div jput="template">
+	<div style="margin: 10px">
+	<a href="#">{{name}} ({{rank}})</a><br>
+	<div style="margin-left: 10px">
+	{{university}} ({{city}}, {{state}})<br>
+	Subfields:{{subfields}}<br>
+	Recent Publication: {{rpub}} ({{numpub}} publications found)
+	</div>
+	</div>
+	</div>
+</div>
+	
 	
 		
 	<div class="page-header center">
@@ -80,6 +86,10 @@ display:block; margin-left:auto; margin-right:auto;
 	
 </div>
 <div class="col-md-2" id="sidebar"></div>
+
+
+
+
 <!--script>
 
 var width = 200,
