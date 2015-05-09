@@ -279,14 +279,32 @@ class StringGenerator(object):
         </div>
 
         <script>
-        $(document).ready(function(){
+        
             var json= """ + json.dumps(jsonList) + """;
 
-            $('#main').jPut({
-                jsonData:json,   //your json data
-                name:'template'  //jPut template name
-            });
-        });
+
+			$(document).ready(function(){
+				queue()
+					.defer(d3.json, '/json/Inst_info.json')
+					.await(ready);
+			});
+
+			function ready(error, centroid) {
+				for(var j = 0; j < json.length; j++) {
+					for(var i = 0; i < centroid.features.length; i++) {
+						var obj = centroid.features[i];
+						if (obj.id == json[j].unitid) {
+						json[j]["city"] = obj.properties.city;
+						json[j]["state"] = obj.properties.state;
+						}
+					}
+				}
+
+				$('#main').jPut({
+				jsonData:json,   //your json data
+				name:'template'  //jPut template name
+				});
+			}
         </script>
 	
 	
@@ -296,8 +314,9 @@ class StringGenerator(object):
         <div style="margin: 10px">
         <a href="/profile?query=""" + query + """&pid={{id}}&uniid={{unitid}}">{{name}} ({{rank}} Professor)</a><br>
         <div style="margin-left: 10px">
-        {{university}}<br>
-        Subfields:{{subfields}}<br>
+        {{university}} ({{city}}, {{state}})<br>
+        Research Field:{{subfields}}<br>
+		<Recent Publication: {{rpub}} ({{numpub}} publications found)><br>
         </div>
         </div>
         </div>
@@ -305,51 +324,12 @@ class StringGenerator(object):
 	
 	
 		
-        <div class="page-header center">
+        <!--div class="page-header center">
         <p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
-        </div>
+        </div-->
 	
         </div>
         <div class="col-md-2" id="sidebar"></div>
-
-
-
-
-        <!--script>
-
-        var width = 200,
-        height = 104;
-
-        var radius = d3.scale.sqrt()
-        .domain([0, 1e6])
-        .range([0, 10]);
-
-	
-        var path = d3.geo.path();
-
-        var svg = d3.select("#sidebar").append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-        queue()
-        .defer(d3.json, "/json/us.json")
-        .defer(d3.json, "/json/us-state-centroids.json")
-        .await(ready);
-
-        function ready(error, us, centroid) {
-            svg.append("path")
-            .attr("class", "states")
-            .datum(topojson.feature(us, us.objects.states))
-            .attr("d", path);
-
-            svg.selectAll(".symbol")
-            .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
-            .enter().append("path")
-            .attr("class", "symbol")
-            .attr("d", path.pointRadius(function(d) { return 1; }));
-        }
-
-        </script-->
 
         </body>
         </html>
