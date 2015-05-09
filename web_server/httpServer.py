@@ -32,13 +32,13 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
     def do_GET(self):
         parsed_path = urlparse(self.path)
         # parsed_path is in form ParseResult(scheme='', netloc='', path='/webpages/images/icon-search.png', params='', query='', fragment='')
-        print 'parsed_path', parsed_path
+#        print 'parsed_path', parsed_path
 
         args = parsed_path[4].split('&')
         
-        print 'args:', args
+#        print 'args:', args
         
-        print 'self.path', self.path
+#        print 'self.path', self.path
         
         
 
@@ -46,7 +46,7 @@ class MyRequestHandler(CGIHTTPServer.CGIHTTPRequestHandler):
             self.path = '../../webpages/index.html'
         elif self.path.endswith('.py'):
             page = self.path[1:]
-            print 'page', page
+#            print 'page', page
         
 
         #return CGIHTTPServer.CGIHTTPRequestHandler.do_GET(self)
@@ -92,5 +92,10 @@ if __name__ == '__main__':
     
 
 
+<<<<<<< HEAD
     print "serving at port", PORT
     httpd.serve_forever()
+=======
+print ("serving at port", PORT)
+httpd.serve_forever()
+>>>>>>> 1ea033360874e44066b155c7f8d6e75ca419f633
