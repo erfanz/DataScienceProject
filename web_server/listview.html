@@ -22,14 +22,14 @@ display:block; margin-left:auto; margin-right:auto;
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
-		<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/bootstrap/js/tooltip.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/underscore/underscore-min.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/highlightjs/highlight.pack.js" type="text/javascript"></script>
-	<!--script src="javascript/jput-2.js" type="text/javascript"></script-->
+	<script src="javascript/jput-2.js" type="text/javascript"></script>
 	<script src="javascript/jput.min.js" type="text/javascript"></script>
 	
 	<title>ProfFinder</title>
@@ -51,16 +51,34 @@ display:block; margin-left:auto; margin-right:auto;
 	</div>
 
 	<script>
+	
+var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Systems", "Mobile and Ubiquitous Computing"],"university":"Brown University","rpub":"Tupleware: Big Data, Big Analytics, Small Clusters (2015), Conference on Innovative Data Systems Research","numpub":256,"unitid":"217156"},
+{"name":"Avi Silberschatz","rank":"Professor","subfields":["Database Systems", "Operating Systems", "Network Management"],"university":"Yale University","rpub":"Learning and verifying quantified boolean queries by example (2013), Proceedings of the 32nd symposium on Principles of database systems","numpub":666,"unitid":"130794"},
+{"name":"Tim Kraska","rank":"Assistant Professor","subfields":["Database Systems", "Cloud Computing"],"university":"Brown University","rpub":"Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048","numpub":42,"unitid":"217156"}];
 $(document).ready(function(){
-var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Systems", "Mobile and Ubiquitous Computing"],"university":"Brown University","city":"Providence","state":"RI","rpub":"Tupleware: Big Data, Big Analytics, Small Clusters (2015), Conference on Innovative Data Systems Research","numpub":256},
-{"name":"Avi Silberschatz","rank":"Professor","subfields":["Database Systems", "Operating Systems", "Network Management"],"university":"Yale University","city":"New Haven","state":"CT","rpub":"Learning and verifying quantified boolean queries by example (2013), Proceedings of the 32nd symposium on Principles of database systems","numpub":666},
-{"name":"Tim Kraska","rank":"Assistant Professor","subfields":["Database Systems", "Cloud Computing"],"university":"Brown University","city":"Providence","state":"RI","rpub":"Recent Publication: The End of Slow Networks: It's Time for a Redesign (2015), arXiv preprint arXiv:1504.01048","numpub":42}];
+	queue()
+    .defer(d3.json, '/json/Inst_info.json')
+    .await(ready);
 
-   $('#main').jPut({
+   
+});
+
+function ready(error, centroid) {
+for(var j = 0; j < json.length; j++) {
+for(var i = 0; i < centroid.features.length; i++) {
+    var obj = centroid.features[i];
+	if (obj.id == json[j].unitid) {
+		json[j]["city"] = obj.properties.city;
+		json[j]["state"] = obj.properties.state;
+   }
+	}
+}
+
+$('#main').jPut({
        jsonData:json,   //your json data
        name:'template'  //jPut template name
    });
-});
+}
 </script>
 	
 	
@@ -68,10 +86,10 @@ var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Sy
 
 <div jput="template">
 	<div style="margin: 10px">
-	<a href="#">{{name}} ({{rank}})</a><br>
+	<a href="/profile?query=PREVIOUS_QUERY&id={{id}}&uniid={{unitid}}">{{name}} ({{rank}} Professor)</a><br>
 	<div style="margin-left: 10px">
 	{{university}} ({{city}}, {{state}})<br>
-	Subfields:{{subfields}}<br>
+	Research field:{{subfields}}<br>
 	Recent Publication: {{rpub}} ({{numpub}} publications found)
 	</div>
 	</div>
@@ -85,46 +103,6 @@ var json=[{"name":"Ugur Cetintemel","rank":"Professor","subfields":["Database Sy
 	</div>
 	
 </div>
-<div class="col-md-2" id="sidebar"></div>
-
-
-
-
-<!--script>
-
-var width = 200,
-    height = 104;
-
-var radius = d3.scale.sqrt()
-    .domain([0, 1e6])
-    .range([0, 10]);
-
-	
-var path = d3.geo.path();
-
-var svg = d3.select("#sidebar").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-queue()
-    .defer(d3.json, "us.json")
-    .defer(d3.json, "us-state-centroids.json")
-    .await(ready);
-
-function ready(error, us, centroid) {
-  svg.append("path")
-      .attr("class", "states")
-      .datum(topojson.feature(us, us.objects.states))
-      .attr("d", path);
-
-  svg.selectAll(".symbol")
-      .data(centroid.features.sort(function(a, b) { return b.properties.population - a.properties.population; }))
-    .enter().append("path")
-      .attr("class", "symbol")
-      .attr("d", path.pointRadius(function(d) { return 1; }));
-}
-
-</script-->
 
 </body>
 </html>

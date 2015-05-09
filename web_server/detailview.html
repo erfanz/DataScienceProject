@@ -22,10 +22,10 @@ display:block; margin-left:auto; margin-right:auto;
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-		<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
 	<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
-			<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/bootstrap/js/tooltip.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/underscore/underscore-min.js" type="text/javascript"></script>
 	<script src="http://eyeseast.github.io/visible-data/components/highlightjs/highlight.pack.js" type="text/javascript"></script>
@@ -56,10 +56,12 @@ display:block; margin-left:auto; margin-right:auto;
 <div class="col-md-6" id="main">
 	<div jPut="template">
 	<div style="margin: 10px">
-	<h3>{{name}} ({{rank}})</h3>
+	<h3>{{name}} ({{rank}} Professor)</h3>
 	<div style="margin-left: 10px">
 	Faculty at {{university}} since {{joinyear}}<br/>
-	Research Fields: {{subfields}}<br>
+	{{acastart}}{{bscstr}}{{mscstr}}{{phdstr}}{{pdocstr}}{{acaend}}
+	
+	Research Field: {{subfields}}<br>
 	</div>
 	</div>
 	
@@ -102,7 +104,7 @@ display:block; margin-left:auto; margin-right:auto;
 
 <script>
 var unitid = "0";
-var json=[{"name":"Ugur Cetintemel","rank":"Professor","joinyear":"2007","subfields":["Database Systems", "Mobile and Ubiquitous Computing","Operating Systems and Distributed Systems","Big Data Tools and Systems", "Real-time, Continuous Analytics"],"unitid":"217156","university":"Brown University","city":"Providence","state":"RI","publications":[{"authors":"Andrew Crotty, Alex Galakatos, Kayhan Dursun, Tim Kraska, Ugur Çetintemel, Stanley B. Zdonik",
+var json=[{"name":"Ugur Cetintemel","rank":"Professor","joinyear":"2007","subfields":["Database Systems", "Mobile and Ubiquitous Computing","Operating Systems and Distributed Systems","Big Data Tools and Systems", "Real-time, Continuous Analytics"],"phd":"Mars University","unitid":"217156","university":"Brown University","city":"Providence","state":"RI","publications":[{"authors":"Andrew Crotty, Alex Galakatos, Kayhan Dursun, Tim Kraska, Ugur Çetintemel, Stanley B. Zdonik",
 "title":"Tupleware: \"Big\" Data, Big Analytics, Small Clusters.","venue":"CIDR 2015","year":"2015"},
 {"authors":"John Meehan, Nesime Tatbul, Stanley B. Zdonik, Cansu Aslantas, Ugur Çetintemel, Jiang Du, Tim Kraska, Samuel Madden, David Maier, Andrew Pavlo, Michael Stonebraker, Kristin Tufte, Hao Wang",
 "title":"S-Store: Streaming Meets Transaction Processing.","venue":"CoRR abs/1503.01143","year":"2015"},
@@ -180,7 +182,25 @@ statedict = {
 }
 
 $(document).ready(function(){
-
+	json[0]["bscstr"] = "";
+	json[0]["mscstr"] = "";
+	json[0]["phdstr"] = "";
+	json[0]["pdocstr"] = "";
+	json[0]["acastart"] = "<div style=\"margin-left: 20px; margin-bottom: 10px\">";
+	json[0]["acaend"] = "</div>";
+	if(json[0].hasOwnProperty('bsc')){
+		json[0]["bscstr"] = "B.S. " + json[0]["bcs"] + "<br/>";
+	}
+	if(json[0].hasOwnProperty('msc')){
+		json[0]["mscstr"] = "M.S. " + json[0]["mcs"] + "<br/>";
+	}
+	if(json[0].hasOwnProperty('phd')){
+		json[0]["phdstr"] = "PhD. " + json[0]["phd"] + "<br/>";
+	}
+	if(json[0].hasOwnProperty('pdoc')){
+		json[0]["pdocstr"] = "Post Doc. " + json[0]["pdoc"] + "<br/>";
+	}
+	
 
    $('#main').jPut({
        jsonData:json,   //your json data
@@ -190,8 +210,8 @@ $(document).ready(function(){
    unitid = json[0]["unitid"];
    
    queue()
-    .defer(d3.json, "us.json")
-    .defer(d3.json, 'Inst_info.json')
+    .defer(d3.json, "/us.json")
+    .defer(d3.json, '/Inst_info.json')
     .await(ready);
 });
 
