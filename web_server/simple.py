@@ -43,7 +43,7 @@ index = InvertedIndexBuilder()
 
 
 stopwordsFile   = '../utils/stopwords.txt'
-corpusFile      = '../data/corpus.txt'
+corpusFile      = '../data/corpus_2.txt'
 profFile        = '../data/faculty_indexed.csv'
 
 

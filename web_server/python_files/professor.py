@@ -54,13 +54,19 @@ class Professor:
                     paperSplits = paper.split(":")
                     title = ""
                     venue = ""
+                    authors = ""
+                    year = ""
                     
                     if len(paperSplits) > 0:
                         title = paperSplits[0]
                     if len(paperSplits) > 1:
                         venue = paperSplits[1]
+                    if len(paperSplits) > 2:
+                        authors = paperSplits[2]
+                    if len(paperSplits) > 3:
+                        year = paperSplits[3]
                     
-                    d = {"title" : title, "venue" : venue}
+                    d = {"title" : title, "venue" : venue, "authors": auhthors, "year": year}
                     pubList.append(d)
         
         return pubList
@@ -100,8 +106,6 @@ class Professor:
     def findSingleProfByProfID(professorID, prof_file):
         profFile = open(prof_file, 'r')
         
-        print "HERE:: ", professorID, type(professorID)
-        
         for line in profFile:
             splits = line.split(',')
             ID = int(splits[0].strip())
@@ -121,7 +125,5 @@ class Professor:
                 p.PhD      = splits[9].strip()
                 p.postdoc  = splits[10].strip()
                 p.profile  = splits[11].strip()
-                p.publications = Professor.findPublications(ID, '../data/corpus.txt')
-                
-                print "p", p, p.ID, p.name, p.uniID
+                p.publications = Professor.findPublications(ID, '../data/corpus_2.txt')
                 return p
