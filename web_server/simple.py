@@ -347,35 +347,35 @@ class StringGenerator(object):
         <style>
 
         .states {
-          fill: #000;
-          stroke: #fff;
-          stroke-width: 0.4;
+            fill: #000;
+            stroke: #fff;
+            stroke-width: 0.4;
         }
 
         .symbol {
-          fill: red;
-          fill-opacity: 0.8;
+            fill: red;
+            fill-opacity: 0.8;
         }
 
         svg {
-        display:block; margin-left:auto; margin-right:auto;
+            display:block; margin-left:auto; margin-right:auto;
         }
 
         </style>
-            <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-        	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-        	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
-        	<script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
-        	<script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
-        	<script src="http://eyeseast.github.io/visible-data/components/bootstrap/js/tooltip.js" type="text/javascript"></script>
-        	<script src="http://eyeseast.github.io/visible-data/components/underscore/underscore-min.js" type="text/javascript"></script>
-        	<script src="http://eyeseast.github.io/visible-data/components/highlightjs/highlight.pack.js" type="text/javascript"></script>
-        	<script src="javascript/jput-2.js" type="text/javascript"></script>
-        	<script src="javascript/jput.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
+        <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="http://eyeseast.github.io/visible-data/components/jquery/jquery.min.js" type="text/javascript"></script>
+        <script src="http://eyeseast.github.io/visible-data/components/bootstrap/js/tooltip.js" type="text/javascript"></script>
+        <script src="http://eyeseast.github.io/visible-data/components/underscore/underscore-min.js" type="text/javascript"></script>
+        <script src="http://eyeseast.github.io/visible-data/components/highlightjs/highlight.pack.js" type="text/javascript"></script>
+        <script src="javascript/jput-2.js" type="text/javascript"></script>
+        <script src="javascript/jput.min.js" type="text/javascript"></script>
 	
-        	<title>ProfFinder</title>
+        <title>ProfFinder</title>
 	
         </head>
         <body>
@@ -383,65 +383,65 @@ class StringGenerator(object):
         <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-        	<div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
-        		<img src="images/logo.png" height=60/></div>
-        		<div id="searchContainer" style="float:left; width:80%">
-        		<form action="cgi-bin/showSearchResults.py" >
-        			<input id="query" name="query" type="text" style="width:85%"/>
-        			<input id="submit" name="submit" type="submit" value="Search" />
-        		</form>
-        	</div>
-        	</div>
+        <div class="page-header center" style="height: 62px;"><div style="float:left" height=60>
+        <img src="images/logo.png" height=60/></div>
+        <div id="searchContainer" style="float:left; width:80%">
+        <form action="cgi-bin/showSearchResults.py" >
+        <input id="query" name="query" type="text" style="width:85%"/>
+        <input id="submit" name="submit" type="submit" value="Search" />
+        </form>
+        </div>
+        </div>
         </div>
         </div>
         <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-6" id="main">
-        	<div jPut="template">
-        	<div style="margin: 10px">
-        	<h3>{{name}} ({{rank}} Professor)</h3>
-        	<div style="margin-left: 10px">
-        	Faculty at {{university}} since {{joinyear}}<br/>
-        	{{acastart}}{{bscstr}}{{mscstr}}{{phdstr}}{{pdocstr}}{{acaend}}
+        <div jPut="template">
+        <div style="margin: 10px">
+        <h3>{{name}} ({{rank}} Professor)</h3>
+        <div style="margin-left: 10px">
+        Faculty at {{university}} since {{joinyear}}<br/>
+        {{acastart}}{{bscstr}}{{mscstr}}{{phdstr}}{{pdocstr}}{{acaend}}
 	
-        	Research Field: {{subfields}}<br>
-        	</div>
-        	</div>
+        Research Field: {{subfields}}<br>
+        </div>
+        </div>
 	
 	
-		<h4>Publications</h4>
-		<div style="margin: 10px" jrepeat="publications">
-			<div style="margin: 10px" jput="publications">
-			{{authors}}:<br>
-			<div style="margin-left: 10px">
-				<em>{{title}}</em><br/>
-				{{venue}} ({{year}})
-			</div>
-		</div>
+        <h4>Publications</h4>
+        <div style="margin: 10px" jrepeat="publications">
+        <div style="margin: 10px;" jput="publications">
+        {{authors}}:<br>
+        <div style="margin-left: 10px; margin-bottom: 15px;">
+        <em><strong>{{title}}</strong></em><br/>
+        {{venue}} ({{year}})
+        </div>
+        </div>
 
 		
-        	<!--div class="page-header center">
-        		<p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
-        	</div-->
-        	</div>
-        	</div>
+        <!--div class="page-header center">
+        <p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
+        </div-->
+        </div>
+        </div>
         </div>
         <div class="col-md-2" id="sidebar">
-        	<div style="margin: 10px" jput="side">	
-        	<h4>Institution</h4>
-        	<div style="margin-left: 10px">
-        	<a href="http://{{website}}">{{name}}</a><br/>
-        	<a href="{{dept_site}}">CS Department</a><br>
-        	{{addr}}<br>
-        	{{city}}, {{state}} {{zip_code}}<br>
-        	USA<br><br>
-        	Size of CS faculty: {{total_cs_fac}}<br>
-        	<a href="http://{{price_calc}}">Admission information</a><br><br>
+        <div style="margin: 10px" jput="side">	
+        <h4>Institution</h4>
+        <div style="margin-left: 10px">
+        <a href="http://{{website}}">{{name}}</a><br/>
+        <a href="{{dept_site}}">CS Department</a><br>
+        {{addr}}<br>
+        {{city}}, {{state}} {{zip_code}}<br>
+        USA<br><br>
+        Size of CS faculty: {{total_cs_fac}}<br>
+        <a href="http://{{price_calc}}">Admission information</a><br><br>
 	
-        	<a href="{{citylink}}">City Information ({{city}})</a>
+        <a href="{{citylink}}">City Information ({{city}})</a>
 
-        	</div>
-        	</div>
+        </div>
+        </div>
 
         </div>
 
@@ -512,34 +512,34 @@ class StringGenerator(object):
         }
 
         $(document).ready(function(){
-        	json[0]["bscstr"] = "";
-        	json[0]["mscstr"] = "";
-        	json[0]["phdstr"] = "";
-        	json[0]["pdocstr"] = "";
-        	json[0]["acastart"] = "<div style=\\\"margin-left: 20px; margin-bottom: 10px\\\">";
-        	json[0]["acaend"] = "</div>";
-        	if(json[0].hasOwnProperty('bsc')){
-        		json[0]["bscstr"] = "B.S. " + json[0]["bcs"] + "<br/>";
-        	}
-        	if(json[0].hasOwnProperty('msc')){
-        		json[0]["mscstr"] = "M.S. " + json[0]["mcs"] + "<br/>";
-        	}
-        	if(json[0].hasOwnProperty('phd')){
-        		json[0]["phdstr"] = "PhD. " + json[0]["phd"] + "<br/>";
-        	}
-        	if(json[0].hasOwnProperty('pdoc')){
-        		json[0]["pdocstr"] = "Post Doc. " + json[0]["pdoc"] + "<br/>";
-        	}
+            json[0]["bscstr"] = "";
+            json[0]["mscstr"] = "";
+            json[0]["phdstr"] = "";
+            json[0]["pdocstr"] = "";
+            json[0]["acastart"] = "<div style=\\\"margin-left: 20px; margin-bottom: 10px\\\">";
+            json[0]["acaend"] = "</div>";
+            if(json[0].hasOwnProperty('bsc')){
+                json[0]["bscstr"] = "B.S. " + json[0]["bcs"] + "<br/>";
+            }
+            if(json[0].hasOwnProperty('msc')){
+                json[0]["mscstr"] = "M.S. " + json[0]["mcs"] + "<br/>";
+            }
+            if(json[0].hasOwnProperty('phd')){
+                json[0]["phdstr"] = "PhD. " + json[0]["phd"] + "<br/>";
+            }
+            if(json[0].hasOwnProperty('pdoc')){
+                json[0]["pdocstr"] = "Post Doc. " + json[0]["pdoc"] + "<br/>";
+            }
 	
 
-           $('#main').jPut({
-               jsonData:json,   //your json data
-               name:'template'  //jPut template name
-           });
+            $('#main').jPut({
+                jsonData:json,   //your json data
+                name:'template'  //jPut template name
+            });
    
-           unitid = json[0]["unitid"];
+            unitid = json[0]["unitid"];
    
-           queue()
+            queue()
             .defer(d3.json, "/json/us.json")
             .defer(d3.json, '/json/Inst_info.json')
             .await(ready);
@@ -547,94 +547,94 @@ class StringGenerator(object):
 
 
         var width = 200,
-            height = 104;
+        height = 104;
 
         var radius = d3.scale.sqrt()
-            .domain([0, 1e6])
-            .range([0, 10]);
+        .domain([0, 1e6])
+        .range([0, 10]);
 	
         var margin = {top: 5, left: 5, bottom: 5, right: 5}
-          , width = parseInt(d3.select('#sidebar').style('width'))
-          , width = width - margin.left - margin.right
-          , mapRatio = .5
-          , height = width * mapRatio;
+        , width = parseInt(d3.select('#sidebar').style('width'))
+        , width = width - margin.left - margin.right
+        , mapRatio = .5
+        , height = width * mapRatio;
 
         var projection = d3.geo.albersUsa()
-            .scale(width)
-            .translate([width / 2, height / 2]);
+        .scale(width)
+        .translate([width / 2, height / 2]);
 
         var path = d3.geo.path()
-            .projection(projection);	
+        .projection(projection);	
         //var path = d3.geo.path();
 
         var svg = d3.select("#sidebar").insert("svg", ":first-child")
-            .attr("width", width)
-            .attr("height", height);
+        .attr("width", width)
+        .attr("height", height);
 
         /*queue()
-            .defer(d3.json, "us.json")
-            .defer(d3.json, 'Inst_info.json')
-            .await(ready);*/
+        .defer(d3.json, "us.json")
+        .defer(d3.json, 'Inst_info.json')
+        .await(ready);*/
 
         function ready(error, us, centroid) {
-        var sidedata = {};
-        for(var i = 0; i < centroid.features.length; i++) {
-            var obj = centroid.features[i];
-        	if (obj.id == unitid) {
-        		sidedata = obj.properties;
-        		sidedata["citylink"] = "http://www.city-data.com/city/"+sidedata.city+"-"+statedict[sidedata.state]+".html";
+            var sidedata = {};
+            for(var i = 0; i < centroid.features.length; i++) {
+                var obj = centroid.features[i];
+                if (obj.id == unitid) {
+                    sidedata = obj.properties;
+                    sidedata["citylink"] = "http://www.city-data.com/city/"+sidedata.city+"-"+statedict[sidedata.state]+".html";
 		
-        		$('#sidebar').jPut({
-               jsonData: [sidedata],   //your json data
-               name:'side'  //jPut template name
-           });
-        	}
-        }
+                    $('#sidebar').jPut({
+                        jsonData: [sidedata],   //your json data
+                        name:'side'  //jPut template name
+                    });
+                }
+            }
 
    
 
-          svg.append("path")
-              .attr("class", "states")
-              .datum(topojson.feature(us, us.objects.states))
-              .attr("d", path);
+            svg.append("path")
+            .attr("class", "states")
+            .datum(topojson.feature(us, us.objects.states))
+            .attr("d", path);
  
-          svg.selectAll(".symbol")
-              .data(centroid.features)
+            svg.selectAll(".symbol")
+            .data(centroid.features)
             .enter().append("path")
-              .attr("class", "symbol")
-              .attr("d", path.pointRadius(function(d) { 
-        	  if(d.id == unitid){
-        	  return 5;}
-        	  else{return 0;}}));
-        }
+            .attr("class", "symbol")
+            .attr("d", path.pointRadius(function(d) { 
+                if(d.id == unitid){
+                    return 5;}
+                    else{return 0;}}));
+                }
 
 
-        d3.select(window).on('resize', resize);
+                d3.select(window).on('resize', resize);
 
-        function resize() {
-            // adjust things when the window size changes
-            width = parseInt(d3.select('#svg').style('width'));
-            width = width - margin.left - margin.right;
-            height = width * mapRatio;
+                function resize() {
+                    // adjust things when the window size changes
+                    width = parseInt(d3.select('#svg').style('width'));
+                    width = width - margin.left - margin.right;
+                    height = width * mapRatio;
 
-            // update projection
-            projection
-                .translate([width / 2, height / 2])
-                .scale(width);
+                    // update projection
+                    projection
+                    .translate([width / 2, height / 2])
+                    .scale(width);
 
-            // resize the map container
-            svg
-                .style('width', width + 'px')
-                .style('height', height + 'px');
+                    // resize the map container
+                    svg
+                    .style('width', width + 'px')
+                    .style('height', height + 'px');
 
-            // resize the map
-            svg.selectAll('.symbols').attr('d', path);
-            svg.selectAll('.states').attr('d', path);
-        }
-        </script>
+                    // resize the map
+                    svg.selectAll('.symbols').attr('d', path);
+                    svg.selectAll('.states').attr('d', path);
+                }
+                </script>
 
-        </body>
-        </html>
+                </body>
+                </html>
         
         """
         
