@@ -406,24 +406,25 @@ class StringGenerator(object):
 	
         Research Field: {{subfields}}<br>
         </div>
+        
         </div>
 	
 	
-        <h4>Publications</h4>
+        <br/>
+        
         <div style="margin: 10px" jrepeat="publications">
+        <h4>Publications</h4>
         <div style="margin: 10px;" jput="publications">
+        <div style="margin-left: 10px;">
         {{authors}}:<br>
-        <div style="margin-left: 10px; margin-bottom: 15px;">
+        <div style="margin-left: 10px; margin-bottom: 15px; margin-left: 20px">
         <em><strong>{{title}}</strong></em><br/>
         {{venue}} ({{year}})
         </div>
         </div>
-
-		
-        <!--div class="page-header center">
-        <p align='center'>Page &lt; <a href="#">1</a> &gt;</p>
-        </div-->
         </div>
+        </div>
+        
         </div>
         </div>
         <div class="col-md-2" id="sidebar">
