@@ -339,8 +339,6 @@ class StringGenerator(object):
     def profile(self, query, pid, uniid):
         professor = Professor.findSingleProfByProfID(int(pid), profFile, index)
         jsonEntity = [professor.toJSON()]
-        print jsonEntity
-        print json.dumps(jsonEntity)
         
         return """
         <!DOCTYPE html>
@@ -644,5 +642,4 @@ class StringGenerator(object):
 if __name__ == '__main__':
     print 'Building and loading the inverted index ... (may take a few minutes)'
     index.build(stopwordsFile, corpusFile)
-    print index.invertedIndex
     cherrypy.quickstart(StringGenerator(), '/', 'simple.config')
