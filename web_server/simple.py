@@ -39,7 +39,7 @@ index = InvertedIndexBuilder()
 
 
 stopwordsFile   = '../utils/stopwords.txt'
-corpusFile      = '../data/corpus_2.txt'
+corpusFile      = '../data/corpus.txt'
 profFile        = '../data/faculty_indexed.csv'
 
 
@@ -401,7 +401,7 @@ class StringGenerator(object):
         <div style="margin: 10px">
         <h3>{{name}} ({{rank}} Professor)</h3>
         <div style="margin-left: 10px">
-        Faculty at {{university}} since {{joinyear}}<br/>
+        Faculty at {{university}} since {{joinyear}} (<a href="{{profile}}">personal webpage)</a><br/>
         {{acastart}}{{bscstr}}{{mscstr}}{{phdstr}}{{pdocstr}}{{acaend}}
 	
         Research Field: {{subfields}}<br>
@@ -519,16 +519,16 @@ class StringGenerator(object):
             json[0]["pdocstr"] = "";
             json[0]["acastart"] = "<div style=\\\"margin-left: 20px; margin-bottom: 10px\\\">";
             json[0]["acaend"] = "</div>";
-            if(json[0].hasOwnProperty('bsc')){
+            if(json[0].hasOwnProperty('bcs') && json[0]["bcs"] != ""){
                 json[0]["bscstr"] = "B.S. " + json[0]["bcs"] + "<br/>";
             }
-            if(json[0].hasOwnProperty('msc')){
+            if(json[0].hasOwnProperty('mcs') && json[0]["mcs"] != ""){
                 json[0]["mscstr"] = "M.S. " + json[0]["mcs"] + "<br/>";
             }
-            if(json[0].hasOwnProperty('phd')){
+            if(json[0].hasOwnProperty('phd') && json[0]["phd"] != ""){
                 json[0]["phdstr"] = "PhD. " + json[0]["phd"] + "<br/>";
             }
-            if(json[0].hasOwnProperty('pdoc')){
+            if(json[0].hasOwnProperty('pdoc') && json[0]["pdoc"] != ""){
                 json[0]["pdocstr"] = "Post Doc. " + json[0]["pdoc"] + "<br/>";
             }
 	

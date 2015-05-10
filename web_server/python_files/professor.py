@@ -35,7 +35,8 @@ class Professor:
         "city"      : "__",
         "state"     : "__",
         "rpub"      : self.mostRecentPub,
-        "numpub"    : self.numPub
+        "numpub"    : self.numPub,
+        "profile"   : self.profile
         }
         
         #print "json begins:"
@@ -129,6 +130,6 @@ class Professor:
                 p.PhD      = splits[9].strip()
                 p.postdoc  = splits[10].strip()
                 p.profile  = splits[11].strip()
-                #p.publications = Professor.findPublications(ID, '../data/corpus_2.txt')
+                #p.publications = Professor.findPublications(ID, '../data/corpus.txt')
                 p.publications = invertedIndex.publications[professorID]
                 return p
