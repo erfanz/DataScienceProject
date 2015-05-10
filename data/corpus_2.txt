@@ -1,0 +1,3 @@
+158972,Josiah Manson,Positive Gordon Wixom coordinates :Computer Aided Design:Author A - Author B:2011:Compter graphics Multimedia:, Second pub :second venue:Author C - Author D:2015:Compter graphics Multimedia:, Third pub :second venue:Author C - Author D:2009:Compter graphics Multimedia:
+2,Yuanliu Liu,IAIR CarPed  A psychophysically annotated dataset with fine grained and layered semantic labels for object recognition :Pattern Recognition Letters:Author A - Author B:2011:Artificial intelligence:
+3,Daniel Kuritzkes,Treatment Mediated Alterations in HIV Fitness Preserve CD4 T Cell Counts but Have Minimal Effects on Viral Load :PLoS Computational Biology:Author A - Author B:2011:Interdisciplinary Studies:

@@ -16,6 +16,8 @@ import math
 
 class InvertedIndexBuilder:
     invertedIndex = defaultdict(list)
+    publications = defaultdict(list)    # publications[profID] stores a list of publications for professor with profID. Each member of the list is in the form {'title': title, 'venue': venue, 'authors': authors, 'year':year}
+    
     stopWords = list()
     profCnt = 0
     
@@ -24,7 +26,9 @@ class InvertedIndexBuilder:
         corpus_file = open(corpusFile, 'r')
         self.loadStopWords(stopwordsFile)
     
+    
         for line in corpus_file:
+            
             self.profCnt += 1
             # initializing the term frequency list 
             termFrequency = defaultdict(lambda: 0)
@@ -33,16 +37,35 @@ class InvertedIndexBuilder:
             splits = line.lower().split(",")
             profID = int(splits[0])
             profName = splits[1]
-        
+            
+            pubs = []
             for paper in splits[2:]:
                 # each paper is in form title:venue:domain:abstract
-                
+                print 'Paper: ', paper
                 paperSplits = paper.split(":")
+                
+                title = ""
+                venue = ""
+                authors = ""
+                year = 0
             
-                # title = paperSplits[0]
-                # venue = paperSplits[1]
-                # domain = paperSplits[2]
-                # abstract = paperSplits[3]
+                if len(paperSplits) > 0:
+                    title = paperSplits[0]
+                if len(paperSplits) > 1:
+                    venue = paperSplits[1]
+                if len(paperSplits) > 2:
+                    authors = paperSplits[2]
+                if len(paperSplits) > 3:
+                    year = paperSplits[3]
+                    
+                print 'title', title
+                print 'venue', venue
+                print 'authors', authors
+                print 'year', year
+                
+                #domain = paperSplits[2]
+                #abstract = paperSplits[3]
+                pubs.append({'title': title, 'venue': venue, 'authors': authors, 'year': year})
             
                 for paperSplit in paperSplits:
                     terms = paperSplit.split()
@@ -63,6 +86,10 @@ class InvertedIndexBuilder:
                         # each bigram is in form (first_term, second_term)
                         key = bigram[0] + " " + bigram[1]
                         termFrequency[key] += 1
+            
+            # sort the publications by year (from most recent to oldest)
+            pubs = sorted(pubs,key=operator.itemgetter('year'),reverse=True)
+            self.publications[profID] = pubs
         
             # adding all the terms (unigrams + bigrams) to the inverted index
             for term in termFrequency.keys():
@@ -110,17 +137,22 @@ class InvertedIndexBuilder:
             return output            
         
     def sortByTF_IDF(self, profIDs, query):
+        print 'profIDs', profIDs
         profWeight = defaultdict(lambda: 0.0) 
         for term in query:
+            print 'term', term
             for prof in self.invertedIndex[term]:
+                print 'prof', prof
                 if prof[0] in profIDs:
+                    print 'found'
                     tf = prof[1]
                     df = len(self.invertedIndex[term])
-                    profWeight[prof[0]] += (1 + math.log(tf) * (self.profCnt / len(self.invertedIndex[term])))
+                    print 'tf', tf, 'df', df, 'profCnt', self.profCnt
+                    profWeight[prof[0]] += (1 + math.log(tf)) * math.log(self.profCnt / len(self.invertedIndex[term]))
         
         profWeightUpdated = defaultdict(lambda: 0.0) 
         for prof in profWeight.keys():
-            if profWeight[prof] > 2:
+            if profWeight[prof] > 1:
                 profWeightUpdated[prof] = profWeight[prof]
         
         profWeightUpdated = sorted(profWeightUpdated.iteritems(),key=operator.itemgetter(1),reverse=True)
