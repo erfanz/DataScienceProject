@@ -1,0 +1,977 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI-1951a Final Project Report</title>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="page-header center">
+                <h1>CSCI-1951A- Final Report-<small>Proffinder: Computer Science Research Recommendation</small></h1>
+            </div>
+
+<img width=218 height=125
+src="index_files/image002.jpg" align=left hspace=12 v:shapes="Picture_x0020_1">
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1536;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:.15in'>
+  <td style='padding:.05in .1in .05in .1in;height:.15in'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span class=SpellE><span
+  style='font-size:12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:
+  dark1;mso-font-kerning:12.0pt'>Yeounoh</span></span><span style='font-size:
+  12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:dark1;
+  mso-font-kerning:12.0pt'> Chung</span><span style='font-size:12.0pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:.15in'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:dark1;
+  mso-font-kerning:12.0pt'>Scott <span class=SpellE>Houde</span></span><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:.15in'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:12.0pt;
+  font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:dark1;
+  mso-font-kerning:12.0pt'>Johannes Novotny</span><span style='font-size:12.0pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:.15in'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span class=SpellE><span
+  style='font-size:12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:
+  dark1;mso-font-kerning:12.0pt'>Erfan</span></span><span style='font-size:
+  12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Trebuchet MS";color:black;mso-themecolor:dark1;
+  mso-font-kerning:12.0pt'> <span class=SpellE>Zamanian</span></span><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;height:34.2pt'>
+  <td style='padding:.05in .1in .05in .1in;height:34.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><a href="mailto:yeounoh_chung@brown.edu"><span
+  style='font-size:12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Trebuchet MS";mso-font-kerning:12.0pt'>yeounoh_chung@brown.edu</span></a><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:34.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><a href="mailto:Scott_houde@brown.edu"><span
+  style='font-size:12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Trebuchet MS";mso-font-kerning:12.0pt'>Scott_houde@brown.edu</span></a><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:34.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><a
+  href="mailto:Johannes_novotny@brown.edu"><span style='font-size:12.0pt;
+  font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-bidi-font-family:"Trebuchet MS";mso-font-kerning:12.0pt'>Johannes_novotny@brown.edu</span></a><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.05in .1in .05in .1in;height:34.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><a href="mailto:Erfanz@cs.brown.edu"><span
+  style='font-size:12.0pt;font-family:"Trebuchet MS",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-bidi-font-family:"Trebuchet MS";mso-font-kerning:12.0pt'>Erfanz@cs.brown.edu</span></a><span
+  style='font-size:12.0pt;font-family:"Arial",sans-serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>Introduction</h1>
+
+<p class=MsoNormal>Every year, a lot of prospective students contact professors
+before they apply to Ph.D. programs. The goal is not to contact as many
+professors as possible, but to contact those whom the students want to work
+with. But, how do you know which professors from which universities are working
+in the areas that you are interested in? Given the number of professors and the
+institutions, a brute-force search is not a good idea. </p>
+
+<p class=MsoNormal>To guide the prospective Ph.D. students in Computer Science
+in their research advisor search, we propose a research advisor recommender
+service that we are calling <span class=SpellE>Proffinder</span>. The service
+will help out the applicants with tailored lists of professors in the areas of
+interest, specified by a keyword search.</p>
+
+<h1>Data Sets Used</h1>
+
+<p class=MsoNormal>For our project we used three main data sets, 1) computer
+science faculty data<w:Sdt Citation="t" ID="-570193170"><!--[if supportFields]><span
+ style='mso-element:field-begin'></span> CITATION Jef \l 1033 <span
+ style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
+ yes'><span style='mso-spacerun:yes'> </span>(Huang, n.d.)</span><!--[if supportFields]><span
+ style='mso-element:field-end'></span><![endif]--></w:Sdt>, 2) citation network
+dataset<w:Sdt Citation="t" ID="1166213496"><!--[if supportFields]><span
+ style='mso-element:field-begin'></span> CITATION Jie08 \l 1033 <span
+ style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
+ yes'><span style='mso-spacerun:yes'> </span>(Jie Tang, 2008)</span><!--[if supportFields]><span
+ style='mso-element:field-end'></span><![endif]--></w:Sdt>, and 3) Integrated
+Postsecondary Education Data Set (IPEDS)<w:Sdt Citation="t" ID="-918788466"><!--[if supportFields]><span
+ style='mso-element:field-begin'></span> CITATION Nat \l 1033 <span
+ style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
+ yes'><span style='mso-spacerun:yes'> </span>(National Center of Education
+ Statisics,, n.d.)</span><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]--></w:Sdt>.<span
+style='mso-spacerun:yes'>  </span>We will be discussing each of these branches
+and how we brought them together in the following sections.<span
+style='mso-spacerun:yes'>  </span>We also made use of crowdsourcing to obtain
+the computer science department webpage for each university.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<h2>Computer Science Faculty</h2>
+
+<p class=MsoNormal>In the previous and current iteration of Jeff Huang’s HCI
+Seminar, students collected profile information of 2,194 CS professors at 55 U.S.
+universities. Data fields collected per professor included name, rank, year
+joined the faculty, undergraduate/graduate degree universities subfields and
+links to additional information (e.g. portrait image, university profile page).
+While the data went through various verification steps it remains noisy and
+incomplete in some fields, most importantly the subfield information. In our
+project this faculty data is used to filter down and our other data sets and in
+that sense is the main driver for us.<span style='mso-spacerun:yes'> 
+</span>Our only alteration to this data set was to add a faculty ID that we
+generated based on the citation data set and the IPEDS Unit ID that is unique
+for each institution.<span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'><o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=68 valign=bottom style='width:40.5pt;border:solid #CCCCCC 1.0pt;
+  mso-border-alt:solid #CCCCCC .75pt;padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>Name</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td width=43 valign=top style='width:25.5pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>Faculty
+  ID<o:p></o:p></span></i></p>
+  </td>
+  <td valign=top style='border:solid #CCCCCC 1.0pt;border-left:none;mso-border-left-alt:
+  solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>IPEDS_UNITID<o:p></o:p></span></i></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>University</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>Join</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>Rank</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>Subfield</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>BSc
+  University</span></i><span style='font-size:12.0pt;line-height:107%;
+  font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border:solid #CCCCCC 1.0pt;border-left:none;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>MSc University</span></i><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td width=470 valign=bottom style='width:281.7pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><i><span style='font-size:8.5pt;line-height:107%'>PhD
+  University</span></i><span style='font-size:12.0pt;line-height:107%;
+  font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
+  <td width=68 valign=bottom style='width:40.5pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;mso-border-top-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>Jeff Huang</span><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td width=43 valign=top style='width:25.5pt;border-top:none;border-left:none;
+  border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  mso-border-top-alt:solid #CCCCCC .75pt;mso-border-left-alt:solid #CCCCCC .75pt;
+  mso-border-alt:solid #CCCCCC .75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>123456<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>987654<o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>Brown
+  University</span><span style='font-size:12.0pt;line-height:107%;font-family:
+  "Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>2013</span><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>Assistant</span><span
+  style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>Human-Computer
+  Interaction</span><span style='font-size:12.0pt;line-height:107%;font-family:
+  "Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>University
+  of Illinois at Urbana-Champaign - USA</span><span style='font-size:12.0pt;
+  line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td valign=bottom style='border-top:none;border-left:none;border-bottom:solid #CCCCCC 1.0pt;
+  border-right:solid #CCCCCC 1.0pt;mso-border-top-alt:solid #CCCCCC .75pt;
+  mso-border-left-alt:solid #CCCCCC .75pt;mso-border-alt:solid #CCCCCC .75pt;
+  padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>University
+  of Illinois at Urbana-Champaign - USA</span><span style='font-size:12.0pt;
+  line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+  <td width=470 valign=bottom style='width:281.7pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  mso-border-top-alt:solid #CCCCCC .75pt;mso-border-left-alt:solid #CCCCCC .75pt;
+  mso-border-alt:solid #CCCCCC .75pt;padding:0in 2.25pt 0in 2.25pt'>
+  <p class=MsoNormal><span style='font-size:8.5pt;line-height:107%'>University
+  of Washington - USA</span><span style='font-size:12.0pt;line-height:107%;
+  font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>               </span>Table 1:
+An example record from the faculty dataset</p>
+
+<h2>Citation Network Dataset</h2>
+
+<p class=MsoNormal>This dataset has information about more than 629,814
+citations, each associated with abstract, authors, year, venue, and title. The
+abstract as well as the title can be used to extract research keywords
+associated with the authors.<span style='mso-spacerun:yes'>  </span>An extended
+version of recent citation network dataset includes 4,354,534 citation
+relationships (as of May 25th, 2014). The dataset contains a lot more examples
+with missing attribute values (e.g., abstract); however, we use this most
+recent dataset to report up-to-date research areas of professors.</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span
+style='mso-spacerun:yes'>  </span><span style='color:#505B62;background:#EBEBEB;
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_2" o:spid="_x0000_i1029"
+ type="#_x0000_t75" alt="Screen Shot 2015-03-31 at 4.08.44 PM.png" style='width:375pt;
+ height:257.4pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="index_files/image003.png" o:title="Screen Shot 2015-03-31 at 4.08.44 PM"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=625 height=429
+src="index_files/image004.png" alt="Screen Shot 2015-03-31 at 4.08.44 PM.png"
+v:shapes="Picture_x0020_2"><![endif]></span></p>
+
+<p class=MsoCaption>Figure <!--[if supportFields]><span style='mso-element:
+field-begin'></span><span style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC
+<span style='mso-element:field-separator'></span><![endif]--><span
+style='mso-no-proof:yes'>1</span><!--[if supportFields]><span style='mso-no-proof:
+yes'><span style='mso-element:field-end'></span></span><![endif]--> - Citation
+Network Dataset example</p>
+
+<p class=MsoNormal>The dataset contains multiple text files for domain, venue,
+publication, and author information. To generate a research keyword document
+for each professor, we first draw a relationship among different entities
+(i.e., different categories of information).</p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="Picture_x0020_6" o:spid="_x0000_s1027"
+ type="#_x0000_t75" style='position:absolute;margin-left:0;margin-top:847.2pt;
+ width:424.2pt;height:358.15pt;z-index:251657215;visibility:visible;
+ mso-wrap-style:square;mso-width-percent:0;mso-height-percent:0;
+ mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;
+ mso-wrap-distance-bottom:0;mso-position-horizontal:left;
+ mso-position-horizontal-relative:text;mso-position-vertical:absolute;
+ mso-position-vertical-relative:text;mso-width-percent:0;mso-height-percent:0;
+ mso-width-relative:page;mso-height-relative:page'>
+ <v:imagedata src="index_files/image005.png" o:title="" croptop="5173f"
+  cropbottom="2762f" cropleft="4509f" cropright="9856f"/>
+ <w:wrap type="square"/>
+</v:shape><![endif]--><![if !vml]><img width=707 height=597
+src="index_files/image006.png" align=left hspace=12 v:shapes="Picture_x0020_6"><![endif]><!--[if mso & !supportInlineShapes & supportFields]><span
+style='mso-element:field-begin;mso-field-lock:yes'></span><span
+style='mso-spacerun:yes'> </span>SHAPE <span
+style='mso-spacerun:yes'> </span>\* MERGEFORMAT <span style='mso-element:field-separator'></span><![endif]--><!--[if gte vml 1]><v:rect
+ id="AutoShape_x0020_5" o:spid="_x0000_s1026" alt="https://docs.google.com/a/brown.edu/drawings/d/sC0cVuX9VVI4lgNCV8dmDbA/image?w=439&amp;h=394&amp;rev=696&amp;ac=1"
+ style='width:24pt;height:24pt;visibility:visible;mso-wrap-style:square;
+ mso-left-percent:-10001;mso-top-percent:-10001;mso-position-horizontal:absolute;
+ mso-position-horizontal-relative:char;mso-position-vertical:absolute;
+ mso-position-vertical-relative:line;mso-left-percent:-10001;mso-top-percent:-10001;
+ v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQC2gziS/gAAAOEBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJU67QAgl6YK0S0CoHGBkTxKLZGx5TGhvj5O2G0SRWNoz/78nu9wcxkFMGNg6quQqL6RA
+0s5Y6ir5vt9lD1JwBDIwOMJKHpHlpr69KfdHjyxSmriSfYz+USnWPY7AufNIadK6MEJMx9ApD/oD
+OlTrorhX2lFEilmcO2RdNtjC5xDF9pCuTyYBB5bi6bQ4syoJ3g9WQ0ymaiLzg5KdCXlKLjvcW893
+SUOqXwnz5DrgnHtJTxOsQfEKIT7DmDSUCaxw7Rqn8787ZsmRM9e2VmPeBN4uqYvTtW7jvijg9N/y
+JsXecLq0q+WD6m8AAAD//wMAUEsDBBQABgAIAAAAIQA4/SH/1gAAAJQBAAALAAAAX3JlbHMvLnJl
+bHOkkMFqwzAMhu+DvYPRfXGawxijTi+j0GvpHsDYimMaW0Yy2fr2M4PBMnrbUb/Q94l/f/hMi1qR
+JVI2sOt6UJgd+ZiDgffL8ekFlFSbvV0oo4EbChzGx4f9GRdb25HMsYhqlCwG5lrLq9biZkxWOiqY
+22YiTra2kYMu1l1tQD30/bPm3wwYN0x18gb45AdQl1tp5j/sFB2T0FQ7R0nTNEV3j6o9feQzro1i
+OWA14Fm+Q8a1a8+Bvu/d/dMb2JY5uiPbhG/ktn4cqGU/er3pcvwCAAD//wMAUEsDBBQABgAIAAAA
+IQCrFDNhlAIAAL0EAAAOAAAAZHJzL2Uyb0RvYy54bWysVE1v2zAMvQ/YfxB02M2xnSgfzuoUqd0M
+BbquQLdgV0WSPzBb8iQlTjvsv4+Smy7dbsMuAkVaj+R7pC8uj22DDkKbWskUx6MIIyGZ4rUsU/zl
+8yZYYGQslZw2SooUPwqDL1dv31z03VKMVaUaLjQCEGmWfZfiytpuGYaGVaKlZqQ6ISFYKN1SC1dd
+hlzTHtDbJhxH0SzsleadVkwYA958COKVxy8KweynojDCoibFUJv1p/bnzp3h6oIuS027qmbPZdB/
+qKKltYSkL1A5tRTtdf0XVFszrYwq7IipNlRFUTPhe4Bu4uiPbh4q2gnfC5BjuheazP+DZXeHe41q
+nuIpRpK2INF6b5XPjMDFhWFAl5PFgC5cMTMqlSob4Rug4U6rXo4E35+EMSEPTRax7f5rst3ekKa8
+y7YL3ua7dVi3tBSXfUomyTvadu+rdJIQb2lxSGfJzNuUpbETpoeUUN9Dd68dtaa7VeybQVJlFZWl
+WJsO5IWhg8JPLg3VVIJyYMhDhK8w3MUAGtr1HxWHVim06mU7Frp1OUAQdPTT8fgyHeJoEQPnJCKL
+CGaIQejZhiJDujw97rSxH4RqkTNSrKE6D04Pt8YOn54+cbmk2tRN4wewka8cgDl4IDU8dTFXhJ+n
+H0mUXC+uFyQg49l1QCLOg/UmI8FsE8+n+STPsjz+Ocz12aN4TKKrcRJsZot5QAoyDZJ5tAiiOLlK
+ZhFJSL7xjyD1KannztE1KLFT/BGo0wpaAxZg58GolH7CqIf9SbH5vqdaYNTcSKA/iQlxC+cvZDof
+w0WfR3bnESoZQKXYYjSYmR2WdN/puqwgU+yplMpNZ1F7Op2cQ1Ugg7vAjnhBnvfZLeH53X/1+6+z
++gUAAP//AwBQSwMEFAAGAAgAAAAhAEyg6SzYAAAAAwEAAA8AAABkcnMvZG93bnJldi54bWxMj0FL
+w0AQhe+C/2EZwYvYjSJSYjZFCmIRoZhqz9PsmASzs2l2m8R/36ke9DLD4w1vvpctJteqgfrQeDZw
+M0tAEZfeNlwZeN88Xc9BhYhssfVMBr4pwCI/P8swtX7kNxqKWCkJ4ZCigTrGLtU6lDU5DDPfEYv3
+6XuHUWRfadvjKOGu1bdJcq8dNiwfauxoWVP5VRycgbFcD9vN67NeX21Xnver/bL4eDHm8mJ6fAAV
+aYp/x3DCF3TIhWnnD2yDag1Ikfgzxbubi9r9bp1n+j97fgQAAP//AwBQSwECLQAUAAYACAAAACEA
+toM4kv4AAADhAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQItABQA
+BgAIAAAAIQA4/SH/1gAAAJQBAAALAAAAAAAAAAAAAAAAAC8BAABfcmVscy8ucmVsc1BLAQItABQA
+BgAIAAAAIQCrFDNhlAIAAL0EAAAOAAAAAAAAAAAAAAAAAC4CAABkcnMvZTJvRG9jLnhtbFBLAQIt
+ABQABgAIAAAAIQBMoOks2AAAAAMBAAAPAAAAAAAAAAAAAAAAAO4EAABkcnMvZG93bnJldi54bWxQ
+SwUGAAAAAAQABADzAAAA8wUAAAAA
+" filled="f" stroked="f">
+ <o:lock v:ext="edit" aspectratio="t"/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:rect><![endif]--><!--[if mso & !supportInlineShapes & supportFields]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:24pt;height:24pt'>
+ <v:imagedata croptop="-65520f" cropbottom="65520f"/>
+</v:shape><span style='mso-element:field-end'></span><![endif]--></p>
+
+<p class=MsoNormal>Figure 2. ER-diagram for authors and their research (i.e.,
+domain, publication)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>We index all the authors by a unique integer value from 1 to
+|author|. There will be a single document per author, and all publications
+related to a given author are concatenated to form a document. A document is
+represented as a string vector: </p>
+
+<p class=MsoNormal>d=&lt;<span class=SpellE>id<span class=GramE>,autname,pubtitle:venname:domname:pubabstract</span></span>,
+...&gt;. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If there are multiple publications by the author, then ‘<span
+class=SpellE>pubtitle<span class=GramE>:venname:domname:pubabstract</span></span><span
+class=GramE>’</span> for each publication will be joined with the other with a
+comma in-between.</p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_3" o:spid="_x0000_i1027" type="#_x0000_t75" alt="https://lh5.googleusercontent.com/qzr77l7-BblIq-gSXTRkhF0nL7ajY_lTSCQuZBWlirUfaRsMRWOGA7Ifyq1rhnizxmonXmHpabVUK8TW_AzYKwLrf33p0QkVOQld9jpDckx6McSvyw4gU1Nt8dPZxUTf7HHlf4s"
+ style='width:586.2pt;height:53.4pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="index_files/image007.png" o:title="qzr77l7-BblIq-gSXTRkhF0nL7ajY_lTSCQuZBWlirUfaRsMRWOGA7Ifyq1rhnizxmonXmHpabVUK8TW_AzYKwLrf33p0QkVOQld9jpDckx6McSvyw4gU1Nt8dPZxUTf7HHlf4s"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=977 height=89
+src="index_files/image008.png"
+alt="https://lh5.googleusercontent.com/qzr77l7-BblIq-gSXTRkhF0nL7ajY_lTSCQuZBWlirUfaRsMRWOGA7Ifyq1rhnizxmonXmHpabVUK8TW_AzYKwLrf33p0QkVOQld9jpDckx6McSvyw4gU1Nt8dPZxUTf7HHlf4s"
+v:shapes="Picture_x0020_3"><![endif]></span></p>
+
+<p class=MsoNormal>Figure 3. Examples from corpus dataset<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>Research
+keywords or fields of their expertise’s can be obtained from various relations
+and attributes. In specific, we examine domain name, publication titles,
+abstracts, and publication venue names and scopes for keywords and associate
+them with authors.</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman";
+mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="Picture_x0020_8" o:spid="_x0000_i1026"
+ type="#_x0000_t75" style='width:430.2pt;height:187.2pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="index_files/image009.png" o:title="" croptop="9186f"
+  cropbottom="21398f" cropright="5293f"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=717 height=312
+src="index_files/image010.png" v:shapes="Picture_x0020_8"><![endif]></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal>Figure 4. Keyword extraction using <span class=SpellE>tf-idf</span>
+statistic<span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><o:p></o:p></span></p>
+
+<p class=MsoNormal>A simple keyword extraction procedure is shown in Figure 3.
+A corpus over all relevant relations and attributes is created; terms (e.g.,
+unigram and bigram) in the corpus are extracted as features as a bag-of-words.
+Once the bag-of-words model is prepared, we can compute <span class=SpellE><i>tf-idf</i></span>
+for each term, and use the <span class=SpellE><i>tf-idf</i></span> statistic to
+extract keywords for each author. In brief, term frequency is computed as <span
+class=SpellE>tf</span>(<span class=SpellE>t,d</span>) =<span class=SpellE>fd</span>(t)<span
+class=SpellE>maxwdfd</span>(w), inverse document frequency is computed as <span
+class=SpellE>idf</span>(<span class=SpellE>t,D</span>)=ln(|D||{<span
+class=SpellE>dD:td</span>}|); we simply multiply those together to get <span
+class=SpellE><i>tf-idf</i></span>. In this work, we compute <span class=SpellE><i>tf-idf</i></span>
+when we build an inverted index for search term-professors relationship
+(Section 1.4).</p>
+
+<p class=MsoNormal>We then created an inverted index for search, which will
+take in user’s search terms (e.g., research keywords) and output related
+professor profiles and other information. </p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="Picture_x0020_4" o:spid="_x0000_i1025" type="#_x0000_t75" alt="Macintosh HD:Users:yeounoh:Downloads:inverted_index.png"
+ style='width:400.2pt;height:311.4pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="index_files/image011.png" o:title="inverted_index"
+  cropbottom="7394f" cropleft="5377f" cropright="4117f"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=667 height=519
+src="index_files/image012.png"
+alt="Macintosh HD:Users:yeounoh:Downloads:inverted_index.png" v:shapes="Picture_x0020_4"><![endif]></span></p>
+
+<p class=MsoNormal>Figure 5. Inverted index for keyword search</p>
+
+<p class=MsoNormal>The index is based on the research keywords from the corpus
+generated in the previous step. The relevance of each keyword for a given
+professor can be measured using <span class=SpellE>tf-idf</span>, and we link
+each unigram and bigram keywords appear in the corpus to the professor IDs who
+have published containing the keywords. A term’s <span class=SpellE><i>idf</i></span>
+can be computed as an inverse of the length of the linked list; <span
+class=SpellE>tf</span> is computed as we build the inverted index and annotated
+next to the professor IDs.<span style='font-size:10.0pt;line-height:107%;
+font-family:"Times",serif;mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:
+minor-bidi'><o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Integrated Postsecondary Education Data Set (IPEDS)</h2>
+
+<p class=MsoNormal>IPEDS is the Integrated Postsecondary Education Data System.
+It is a system of interrelated surveys conducted annually by the U.S.
+Department’s National Center for Education Statistics (NCES). IPEDS gathers
+information from every college, university, and technical and vocational
+institution that participates in the federal student financial aid programs.
+The Higher Education Act of 1965, as amended, requires that institutions that
+participate in federal student aid programs report data on enrollments, program
+completions, graduation rates, faculty and staff, finances, institutional
+prices, and student financial aid.<w:Sdt Citation="t" ID="1031526846"><!--[if supportFields]><span
+ style='mso-element:field-begin'></span> CITATION Nat1 \l 1033 <span
+ style='mso-element:field-separator'></span><![endif]--><span style='mso-no-proof:
+ yes'><span style='mso-spacerun:yes'> </span>(National Center for Education
+ Statistics, n.d.)</span><!--[if supportFields]><span style='mso-element:field-end'></span><![endif]--></w:Sdt>
+</p>
+
+<p class=MsoNormal>It is a rich source of information about universities in the
+United States and the information is available for anyone to download from <a
+href="http://nces.ed.gov/ipeds/datacenter/">the IPEDS Data Center</a>.<span
+style='mso-spacerun:yes'>  </span>Each data file comes with a dictionary defining
+the fields and any other fields, like ALEVEL (IPEDS Award Level) were easily
+defined after a quick web search.<span style='mso-spacerun:yes'>  </span>For
+our project here we used only a small part of the data.<span
+style='mso-spacerun:yes'>  </span>The table below shows the three files we
+used.<span style='mso-spacerun:yes'>  </span>Our files all came from the <span
+class=GramE>Fall</span> 2013 time frame since that is the most recent confirmed
+data available.<span style='mso-spacerun:yes'>  </span>In the fields used
+section I list the items we used in our visualizations, we did not strip out
+any other data fields in case they became useful later.<span
+style='mso-spacerun:yes'>  </span>Each of these files were stripped down to
+just the rows we wanted using Python scripts.<span style='mso-spacerun:yes'> 
+</span>For all of the files that meant reducing by UNITID and the completions
+file we also eliminated any rows that were not for doctoral degrees in the
+computer science area, as defined by <a
+href="https://nces.ed.gov/ipeds/cipcode/cipdetail.aspx?y=55&amp;cipid=88085">CIPC
+codes</a></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+mso-fareast-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td valign=top style='border:solid black 1.0pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Category</span></b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:solid black 1.0pt;border-left:none;mso-border-left-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Survey filename(s)<o:p></o:p></span></b></p>
+  </td>
+  <td valign=top style='border:solid black 1.0pt;border-left:none;mso-border-left-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Title</span></b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:solid black 1.0pt;border-left:none;mso-border-left-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Fields Used</span></b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td valign=top style='border:solid black 1.0pt;border-top:none;mso-border-top-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>Institutional
+  Characteristics</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>hd2013.csv<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>Directory
+  information</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>UNITID, Name, Address
+  City, State, Zip, <span class=SpellE>Lat</span> and Long, <span class=SpellE>Inst</span>
+  web site, Net Price Calculator</span><span style='font-size:12.0pt;
+  font-family:"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td valign=top style='border:solid black 1.0pt;border-top:none;mso-border-top-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Enrollments</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>e2013_a.csv<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>Race/ethnicity,
+  gender, attendance status, and level of student: Fall 2013</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>UNITID, Level of
+  student (Undergrad, Masters, Doctoral).Enrollments by Gender, Race and
+  Ethnicity</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes;height:.75in'>
+  <td valign=top style='border:solid black 1.0pt;border-top:none;mso-border-top-alt:
+  solid black .75pt;mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt;
+  height:.75in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>Completions</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:.75pt .75pt .75pt .75pt;height:.75in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>C2013_a.csv,
+  c2012_a.csv and c2011_a.csv<o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt;height:.75in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:#333333;background:white'>Awards/degrees
+  conferred by program (6-digit CIP code), award level, race/ethnicity, and
+  gender:</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+  border-right:solid black 1.0pt;mso-border-top-alt:solid black .75pt;
+  mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt;height:.75in'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:9.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>UNITID, <span
+  class=SpellE>CIPCode</span>, Award level, counts by the same Gender,
+  Race/Ethnicity and Non-Resident Alien fields as enrollment data set. &nbsp;</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>We converted the institutional characteristics file into a
+GEOJSON object using python scripts for our visualization and also added the
+computer science department website, generated by crow sourcing and total
+faculty counts, from the faculty data set.</p>
+
+<h1>Visualization</h1>
+
+<p class=MsoNormal>To provide access our dataset we implemented a web-frontend
+similar to the Google search engine. Our main webpage provides the basic search
+field for the research fields users are interested about. Additionally, we
+provide an overview map visualizing locations (implemented in d3), names and
+number of computer science faculty for all universities covered by our dataset.<br>
+After searching for a term, we return a results list containing all professors
+related to the search term ordered by their relevance based on the <span
+class=SpellE>tf-idf</span> value. Apart from the name, we also list academic
+rank, current university, subfield, and publication information about each
+professor. Selecting a professor from this list leads to his/her individual
+profile page.<br>
+The profile page aggregates detail information from all of our data sources. In
+the central page we combine personal information of a professor retrieved from
+Jeff Huang’s dataset (e.g. the year he/she joined the faculty) with a
+chronological list of publications. General Information about the computer
+science department, the university and the city in which it is located is shown
+in the sidebar.</p>
+
+<p class=MsoNormal><a href="demo/ProfFinder.html">Follow this link</a> for a static demo of our web application. It
+simulates a search for the term “Distributed computing” and a subsequent click
+on the profile of Maurice <span class=SpellE>Herlihy</span>.</p>
+
+<h1>Challenges</h1>
+
+<h2>Citation Challenges</h2>
+
+<p class=MsoNormal>Sourcing complete professors and universities datasets and
+integrating them all together is a huge challenge that shapes the eventual
+recommendations in the end. Entity resolution is a well-known problem in data
+integration; furthermore, given the nature of the information we are dealing
+with, missing professors or incorrect information cannot be estimated, and what
+is missing in the base datasets will be missing in the recommendations as well.<span
+style='mso-spacerun:yes'>  </span>We were only able to match up 2128 professors
+out of 2194.<span style='mso-spacerun:yes'>  </span>Mapping from the user
+search terms to the entries in the integrated dataset is a challenge in that
+user can issue any search terms. We have built an inverted index to map a
+keyword to a list of related professors. The feature space for any search query
+is enormous, and it impossible to examine all possible matching research
+keywords for the query. Instead, we only search through the unigrams and
+bigrams that contain any matching terms in the query.</p>
+
+<h2 style='tab-stops:146.4pt'>IPEDS Data<span style='mso-tab-count:1'>                              </span></h2>
+
+<p class=MsoNormal>Despite being considered highly accurate, coming directly
+from the institutions themselves, transforming the data from CSV to JSON
+revealed some problems with it.<span style='mso-spacerun:yes'>  </span>Some
+rows had different numbers of fields, resulting in bad output due to <span
+class=SpellE>mis</span>-indexing.<span style='mso-spacerun:yes'>  </span>Some
+fields also contained commas when they shouldn’t giving us the same
+problem.<span style='mso-spacerun:yes'>  </span>In the end several rows in the
+final JSON objects were manually altered to be correct, something that would
+have to be done again if we were to re-run the data to add more institutions.</p>
+
+<h2>Web-Based Visualization</h2>
+
+<p class=MsoNormal>No one on our team has extensive web-based app experience
+which made setting up the web server and finding the best way to pass
+information between pages and the like more difficult than we expected.<span
+style='mso-spacerun:yes'>  </span>Even knowing better we didn’t allow enough
+time to really refine the D3 visualizations and make them as interactive as we
+would have liked.</p>
+
+<h1>Open Questions</h1>
+
+<p class=MsoNormal>There are a number of avenues for future work that would be
+interesting to explore:</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The essence of our ranking system is based on
+the publications list. If search term ‘T’ occurs more often in the title of
+publications of professor A than professor B, then professor A is considered a
+better fit when the user searches for term ‘T’. While in many cases this could
+be a good measure of relevance between professors and research areas,
+oftentimes it could potentially result in misleading rankings. For example, the
+publications in the area of databases usually do not have the word ‘database’
+in their titles. The question here is what should be used instead of/in
+addition to the publication titles? We believe that paper abstracts could be a
+good point to start.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Our recommendation system helps students find
+professors with desired research interests. However, students are oftentimes
+interested to dig deeper about the research interests of a particular
+professor. A word-cloud of most frequent research areas a professor corresponds
+to could convey a lot of information. </p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>In a similar vein, when showing the profile of
+professors, it could be informative for students to find out about other
+similar professors. For example, when showing Tim <span class=SpellE>Kraska’s</span>
+profile, the system should show Stan <span class=SpellE>Zdonik</span>, <span
+class=SpellE>Ugur</span> <span class=SpellE>Cetintemel</span>, Michael
+Franklin, etc. This would allow users to navigate through the system not only
+by search terms, but also by research similarity. Rather than keyword-driven,
+this approach of recommendation is more semantic-driven,</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The research areas of professors are not the
+only determining factors when it comes to choosing a graduate program. The
+university itself, its reputation, location, academic/recreational facilities,
+etc. could influence one’s decision as much. For example, the user might be
+interested to find faculty members in database area only in the west coast, or
+in cities with low crime rate, or in universities, which do not have a severe
+gender ratio problem. Although our recommendation system provides some
+information about the city in which the university is located (by linking to <a
+href="http://www.city-data.com">www.city-data.com</a>), providing these pieces
+of information in a more structured way (for instance in a way that enables the
+user to search by them) is a potential future avenue.</p>
+
+<h1>Conclusion</h1>
+
+<p class=MsoNormal>In the end we feel we delivered a very interesting project
+that has a ton of potential.<span style='mso-spacerun:yes'>  </span>During our
+poster presentation many students wanted to come over and try out our system,
+searching for their particular areas of interest and taking note of the names
+that appeared.<span style='mso-spacerun:yes'>  </span>We did not some people
+felt strongly that our system was “wrong” since the names and relevance did not
+match up to their expectations.<span style='mso-spacerun:yes'>  </span>Our
+system was working accurately, from the information we had available to feed
+it.<span style='mso-spacerun:yes'>  </span>If we had more abstracts and more
+publications available the results would be better, or maybe closer to what
+people expected anyway.</p>
+
+<p class=MsoNormal>Our original proposal had the following table of desired
+deliverables.</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;mso-yfti-tbllook:1184'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=150 valign=top style='width:89.7pt;border:solid black 1.0pt;
+  mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='font-size:10.0pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>% of Grade</span></b><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=1689 valign=top style='width:1013.1pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:10.0pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>Deliverable</span></b><span style='font-size:12.0pt;font-family:
+  "Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=150 valign=top style='width:89.7pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:11.5pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>75%</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=1689 valign=top style='width:1013.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>A linked data-set of
+  publication, university and CS faculty profile information with a serviceable
+  but minimal web based user interface with search engine</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=150 valign=top style='width:89.7pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:11.5pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>100%</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=1689 valign=top style='width:1013.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>As above but the user
+  interface will be increased by making better use of visualizations and
+  interactive searching, potential inclusion of a recommendation engine on top
+  of the search engine.</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+  <td width=150 valign=top style='width:89.7pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span style='font-size:11.5pt;
+  font-family:"Arial",sans-serif;mso-fareast-font-family:"Times New Roman";
+  color:black'>125%</span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td width=1689 valign=top style='width:1013.1pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:5.25pt 5.25pt 5.25pt 5.25pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:11.5pt;font-family:"Arial",sans-serif;
+  mso-fareast-font-family:"Times New Roman";color:black'>In addition to the
+  base data set and a highly usable web interface additional data sources will
+  be pulled in such as faculty social media like Twitter or LinkedIn. &nbsp;A
+  recommendation engine will be able to make suggestions of faculty like other
+  faculty based on publication abstract keyword comparison.</span><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+  "Times New Roman"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>We believe that we have firmly met the first two goals. <span
+style='mso-spacerun:yes'>  </span>We cleaned the data sets, transformed some
+data into a more useable format and made a visible web based search
+engine.<span style='mso-spacerun:yes'>  </span>However we feel that we feel
+short of the final goal.<span style='mso-spacerun:yes'>  </span>In the end we
+have many of the pieces we needed in place but we just ran out of time to
+assemble them.<span style='mso-spacerun:yes'>  </span>The visualization was not
+to where we had hoped it would be, and although we were shorting our search
+results by relevance we were unable to implement a feature like “find other
+professors like this one”.<span style='mso-spacerun:yes'>  </span>Given some
+more time we are quite confident we could have delivered something both a joy
+to use and very useful.</p>
+
+</div>
+
+</body>
+
+</html>
